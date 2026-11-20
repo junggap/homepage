@@ -74,7 +74,11 @@ def clean_text(text: str) -> str:
     text = re.sub(r'\s+', ' ', text)
     return text.strip()
 
-def fetch_rss_query(query: str):
+def fetch_rss_query(query: str, max_days: int = 7):
+    """
+    Search Google News RSS for a specific query and return recent news item
+    ONLY if it was published within the past `max_days` days.
+    """
     encoded_query = urllib.parse.quote(query)
     url = f"https://news.google.com/rss/search?q={encoded_query}&hl=en-US&gl=US&ceid=US:en"
     
@@ -90,13 +94,30 @@ def fetch_rss_query(query: str):
                 link = item.find('link').text if item.find('link') is not None else "#"
                 pubDate = item.find('pubDate').text if item.find('pubDate') is not None else ""
                 
+                # Check date threshold (7 days)
+                is_recent = False
                 date_str = ""
                 if pubDate:
                     try:
+                        # e.g., 'Wed, 18 Nov 2026 14:00:00 GMT'
+                        # Standard RFC 822 format parsed by slicing or email.utils
                         dt = datetime.datetime.strptime(pubDate[:16], "%a, %d %b %Y")
-                        date_str = dt.strftime("%b %d")
+                        now = datetime.datetime.now()
+                        delta = now - dt
+                        if delta.days <= max_days:
+                            is_recent = True
+                            if delta.days == 0:
+                                date_str = "Today"
+                            elif delta.days == 1:
+                                date_str = "Yesterday"
+                            else:
+                                date_str = f"{delta.days}d ago ({dt.strftime('%b %d')})"
                     except Exception:
-                        date_str = pubDate[:11]
+                        # If date parsing fails, fallback check
+                        pass
+                
+                if not is_recent:
+                    return None
                 
                 source = "News"
                 if " - " in title:
@@ -177,29 +198,23 @@ def fetch_industry_stories():
     return stories
 
 def fetch_company_updates():
-    print("[3/3] Checking recent company updates for Global Radar...")
+    print("[3/3] Checking recent company updates (strictly within past 7 days)...")
     company_updates = {}
     
     for region, companies in TRACKED_COMPANIES.items():
         company_updates[region] = []
         for c in companies:
-            news = fetch_rss_query(c['query'])
+            news = fetch_rss_query(c['query'], max_days=7)
+            # ONLY include the company if a verified update within the past 7 days was found
             if news:
-                update_text = news['headline']
-                update_link = news['link']
-                update_meta = f"{news['source']} · {news['date']}" if news['date'] else news['source']
-            else:
-                update_text = f"Continuous autonomy testing and production scaling on {c['robot']} platform."
-                update_link = "#"
-                update_meta = "Lab Radar"
-                
-            company_updates[region].append({
-                "name": c['name'],
-                "robot": c['robot'],
-                "update": update_text,
-                "link": update_link,
-                "meta": update_meta
-            })
+                update_meta = f"{news['source']} · {news['date']}"
+                company_updates[region].append({
+                    "name": c['name'],
+                    "robot": c['robot'],
+                    "update": news['headline'],
+                    "link": news['link'],
+                    "meta": update_meta
+                })
             
     return company_updates
 
@@ -287,7 +302,13 @@ def render_html(today_str, papers, stories, company_updates):
         </div>
         """
         
-    def render_region_cards(companies):
+    def render_region_cards(companies, region_name):
+        if not companies:
+            return f"""
+            <div style="padding: 10px 14px; font-size: 13.5px; color: var(--ink-muted); font-style: italic; background-color: var(--paper-card); border: 1px dashed var(--rule-light); border-radius: 6px;">
+                No major news or public updates detected from {region_name} companies within the past 7 days.
+            </div>
+            """
         html = ""
         for c in companies:
             html += f"""
@@ -304,10 +325,10 @@ def render_html(today_str, papers, stories, company_updates):
             """
         return html
 
-    usa_html = render_region_cards(company_updates.get("usa", []))
-    china_html = render_region_cards(company_updates.get("china", []))
-    europe_html = render_region_cards(company_updates.get("europe", []))
-    korea_html = render_region_cards(company_updates.get("korea", []))
+    usa_html = render_region_cards(company_updates.get("usa", []), "United States")
+    china_html = render_region_cards(company_updates.get("china", []), "Chinese")
+    europe_html = render_region_cards(company_updates.get("europe", []), "European")
+    korea_html = render_region_cards(company_updates.get("korea", []), "South Korean")
 
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
