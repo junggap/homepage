@@ -1,0 +1,258 @@
+{
+  "date_key": "2026-11-20",
+  "date_display": "Fri, Nov 20, 2026",
+  "lead_story": {
+    "title": "XPENG to Showcase Its Physical AI Push at Annual AI Day, Featuring Its Latest Humanoid Robot in Action",
+    "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNYWRTNURMRXFyT3lOZFBHMjlMR1VJRjdYeFZUQ2tSRkV3VnR4UVBNTWEycTc4QWdtRW42RGlSTldKdXJhblRuU1FmUjRzYmlCM3psU3hjNWtKbmZsNTdxVmJHNWFndkxzRjBvRzRMU1FHU0dTN3pIYVNSdS1MT283VkRzcUdTRExPajcxVXI1WTMwdXp4dkVNR2VPUQ?oc=5",
+    "source": "Yahoo Finance"
+  },
+  "secondary_stories": [
+    {
+      "title": "Genesis AI Raised $500 Million To Create Human-Level Robot Hands",
+      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOenMxVDdVQnZseVNJallrT0pGQmNTczUyS3RYVjRwczI1b0pMTlJTeTc4S09DSEpUTk5kdzhUaGo3ZEQyb2ZrWEhaelNKSkxwdEpuSlk1bmVxR3JYdTlYUTNiQVFXZk1NM0NKNkIyNFdYSTNKSGtyNFJDUWtGZkFHZmRXTVJoRlVRSHZ5ZFc4SVUwSjMySHM1aXVVaU5rdXBLMHpVdTVWcFI5T20zeXlPYnowUVg4OFpT?oc=5",
+      "source": "Forbes"
+    },
+    {
+      "title": "Mitsubishi Electric CNC work cell uses AI and humanoid robots",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQQUtyRjhoc1oyUGRGUkdKdks2WU9sMFVMRjZQVzdxbDUwVnhGNF9QZHQwNzI0QWlPS2ZiWlRiLVJhYUNIMUJZM3pJMFBPRXowMnlTdWhyWXlXWEVIc2JvZnpBNmNrZ09PV1B1T1dDQ2N6MW5YYk8yRGdoSHlLVHNIQXRabmdtR29oMnpINHh1NlBtWUwy?oc=5",
+      "source": "Engineering.com"
+    },
+    {
+      "title": "Black Sesame Technologies Establishes Embodied AI Headquarters in Shenzhen to Accelerate Robot Commercialization",
+      "link": "https://news.google.com/rss/articles/CBMihAJBVV95cUxPSEpiZUVWc1BIZFI2X3JCY3MzWkwwbXFtNFhmMkVpRWhhSmVYTnZIc291ZTBSbm9TT1VJQ2Z1TmYtY1VKU2dtZTlvSDJOb0JYM0hkc1JSSnRBUUNIZGtPUEswYjZjai1rUlNPZmFXaDBhRWN4MVgwcGhDVjVMU2lJUEVOS1ZBMWJrMGJEVnR3T0JGdGhfX2FEN1ROcFoxc1JkR19xRWItWG91QzdEbWdnd1o0bWU5TDFoeGdVbWFpYXdJYUdBNE1wUDNUMldsOUdLU1JZelZYcWhpSnFXTDN2M2JCSVdUMkxZdUI4dTlLLVJDNFNPaG1HOUxkSTJVU0FIbW14Mg?oc=5",
+      "source": "Gasgoo"
+    }
+  ],
+  "papers": [
+    {
+      "title": "Inhabitant: An Agent Framework for Long-Horizon Human-Scene Interaction with Spatial Control and Quantitative Feedback",
+      "summary": "arXiv:2611.25005v1 Announce Type: new Abstract: Recent work on human-scene interaction (HSI) generation moves from single interactions to long-horizon interaction, where a language-model agent plans and executes a seq...",
+      "link": "https://arxiv.org/abs/2611.25005",
+      "category": "cs.RO"
+    },
+    {
+      "title": "Mapping the Wind to Find the Source: Online Physics-Informed Gas Source Localization with Mobile Robots",
+      "summary": "arXiv:2611.25067v1 Announce Type: new Abstract: Gas Source Localization (GSL) with mobile robots is challenging because wind and gas measurements are spatially sparse, noisy, and potentially affected by robot motion. ...",
+      "link": "https://arxiv.org/abs/2611.25067",
+      "category": "cs.RO"
+    },
+    {
+      "title": "MAWAM: A Multi-Agent World-Action Model for Coordinated Manipulation",
+      "summary": "arXiv:2611.25105v1 Announce Type: new Abstract: Every move in a robot team changes the world in which its teammates must act. Coordinated manipulation therefore calls for predicting the team's actions together with th...",
+      "link": "https://arxiv.org/abs/2611.25105",
+      "category": "cs.RO"
+    },
+    {
+      "title": "GEMS: Generation and Experience Memory for Subgoal-Guided Long-Horizon World Model Planning",
+      "summary": "arXiv:2611.25134v1 Announce Type: new Abstract: Visual world models enable effective short-horizon goal-conditioned planning, such as reaching nearby targets and pushing objects over short distances, by predicting can...",
+      "link": "https://arxiv.org/abs/2611.25134",
+      "category": "cs.RO"
+    }
+  ],
+  "companies": {
+    "usa": [
+      {
+        "name": "Figure AI",
+        "robot": "Figure 02 / 03",
+        "update": "F.02 Decommission",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5KR3kxQ2pJRFktUWZBTWFnRDZla1BVV1NXN2lobTREM0JYdGp5XzNxUGZ4MmdaTThWUGVnUEVpVHhUc3FuMFdIcEdIbG9xWnJYeG9wekhrUQ?oc=5",
+        "meta": "Figure · Sep 30"
+      },
+      {
+        "name": "Tesla",
+        "robot": "Optimus Gen 2/3",
+        "update": "Tesla Optimus Demo Coming in 1-2 Months: What Musk Said - BASENOR",
+        "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOc0phYmNKSHBkdUo0RlI1Slhsb2dxdDF0UjdwWlRyVm9DMVdYQ2pFbUd6UTJNY055T0poWllpUGwtdGtaclFMN1NRT01YUWQ1TlNuMDdKRXpMTHhzcGVvRkpDNkJjVkMybTI0a2YzRkhLazJOckFUazExNkZmWkpWYk5OTzVyUUJpdDEzLVhvOGhZWDg?oc=5",
+        "meta": "Tesla Accessories · Nov 19"
+      },
+      {
+        "name": "Boston Dynamics",
+        "robot": "Electric Atlas",
+        "update": "Boston Dynamics & GlobalFoundries Expand Robotics Collaboration",
+        "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNTXR3cXZCX1NCUDNGLUQwSVJyc0dWdy05dnBaN0VMcUx6LUY3emF5c3J1OU1nMS1BS0ZoTDYtNHpjV2dMX2JNT25IYlVKd2Jud3lUUFd4M2xmWnJab3l2Y0tGY19CaExRdHV6Y3JzaW1TamExUDF1WW9mRllWX0hXc3ZYdXg2cGxOaGVTODg0aDZFR1c2NUhqcll3?oc=5",
+        "meta": "Boston Dynamics · Nov 17"
+      },
+      {
+        "name": "1X Technologies",
+        "robot": "NEO / EVE",
+        "update": "Your Humanoid Robot Might Also Be Your Smart Home Hub: Disembodied Neo Head From 1X",
+        "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPcnRLZm5sUm15MkpINk1ZUDNtQWNzc3FfeElIc1hvX2lodU9WaXRLeklZOFEtQUp6QjM1OWxJa3U2blA5a204cWFDUE5adkZ2Tmh5UXpxQVFOS2hETlpLWEdJamlUVkFpN2VRYXByaHZ0eXV3RkJ6bXZKSDMyVWl4bzZ0WUVic2VBOEJzZ0ZYV0RMMTZKaXpfMU4xdHppOFMya2NHa2tjbmp1ODRJX09SSjQ3NXdXRzF2TlVNMTFhcXFfZmF2QnJRQnN0TjREUVZjZ0E?oc=5",
+        "meta": "Forbes · Nov 03"
+      },
+      {
+        "name": "Agility Robotics",
+        "robot": "Digit",
+        "update": "The Robot I Didn’t Expect to Build",
+        "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE90Y19oRWRwaE5wbmd2OFhPZUsxdUVyLU9yTm9lUDJLdEZkT1U5NWdjdWdYRG9oWF9TRVpHT1N3TzZQbjI3cDBIYjdBcXdlTWNLckkwYndTbkdLblpLN2xNNG80V01MaDBGVHhz?oc=5",
+        "meta": "IEEE Spectrum · Oct 19"
+      },
+      {
+        "name": "Apptronik",
+        "robot": "Apollo",
+        "update": "GXO Doubles Down On Humanoids With Plan For Up To 1,000 Apptronik Robots",
+        "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxObW01STRBOHJNWjdIdDhmWlVLSEtWbm1vRjRNa1VPNW93REhQNk15QVN6YnhwWWYwblZlTnNCVHIxUzJoeUlKMmlBMDhJNy1fWTZYc0FqUnFDTDRzdUFtRWxDT2RyXzZUbWpzSnMyTHlwLTRfWUhzTTRMS2Q3Rk1SVXc2RDlsblBTYXo0Q3BZWVVJYjAxeHJJVjMxTkRhbEo3UjNEc0U5SnI3QURCdzhvdWVxV0RocnVxbmdYeUJDVkNkVjA?oc=5",
+        "meta": "Forbes · Nov 12"
+      },
+      {
+        "name": "Physical Intelligence",
+        "robot": "π0 (Pi-Zero VLA)",
+        "update": "Physical Intelligence, a hot robotics startup, says its new robot brain can figure out tasks it was never taught",
+        "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNcXRCSTdHUE5iSm9VdUt1bnNhdkMwTmZmSU9xS3JTWjFUclF1eGhRRGNqX1RhNXcyVEhnSjcxVk91aEI2UnRpQXdDZXJpS1QycmRmRWFCTExoWmVSMnNiZmZaYVNJY1NmbEkxWVFJeFZqYzJ4WE83aXg0Y3FzNGlZOHNESGc3UklMRTNpbzBPRThNaXQ2aGRuQVZkZGJJQzAtdFlaUjExWTZUOF9BSE9wdHBLMVhfWVdTMnlScktSSVdqeEtLOTVzRHEzNVZsU0o0Z1hydmhkUHNkVDJtcUE?oc=5",
+        "meta": "TechCrunch · Apr 16"
+      },
+      {
+        "name": "Skild AI",
+        "robot": "Skild Brain VLA",
+        "update": "Skild AI unveils S1 flagship robot foundation model",
+        "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPem5reFYtX2ZaOEFvWUxUeW5HRkhZeGxnLWo2dUgxSm5yektocFlGd0Q2enE2S2RCUnlGVFF4SnRBR1h3THFJbTMyRVZqZDM0Z01ZUDNERFBvWWRTZXU1Uzk0QmJRREhBZ3k0VDY2TXRndzJ3TDVoZmh4NjZqbkZzNVpqYWsyNFQ5ZWFn?oc=5",
+        "meta": "The Robot Report · Aug 31"
+      },
+      {
+        "name": "Generalist",
+        "robot": "Foundation Embodied AI",
+        "update": "Elite Robots Collaborates with Generalist AI on Next-Gen Embodied AI",
+        "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPUElxSnpXaHlRcnFucFFNVkdNYXRxSzJyOUJTWHJIczg3MmZIN1MyTVFORGlWbGZka1QyTlhNSVp4cnFDQlFSOXJ5eHFuZ3lfekFuQkJiZm9WczBkNzBKSVVwdEdkRFo2emRKaDU4UlJ4bVl3a1pHbExkcXMxY3M1T1Z0SUV5NGhVUDI3UGcwZEtEdVJ3NTAyZDNrd1lOdWRkZWp5VjN3?oc=5",
+        "meta": "Yahoo Finance · Jul 20"
+      },
+      {
+        "name": "Genesis AI",
+        "robot": "Physics / World Model",
+        "update": "Genesis AI introduces GENE-26.5 robotic model",
+        "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4yUmg0NEJRUTZMMTJ1eFFGcnNtQVNyVnowS2dGN29mTS14UFFKS29XdmZIRWt2NGlXZ1NTNDQxUlk5b1Z2aWw5Vm9oNHRXejQ2LVRHN2QxWk9BUXJQZWRpUjFrTHVReExUTUp1NHJmVHhZRWVqT1MtN2tlMnZtems?oc=5",
+        "meta": "Engineering.com · May 07"
+      },
+      {
+        "name": "Dyna Robotics",
+        "robot": "Taku / Dyna-2.1",
+        "update": "Meet Taku: New AI robot loads washers, folds towels and stocks shelves - ABC News",
+        "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQLUZvSHN1LWVEZzZ3ZURFTGtGMGhTSkFMd0x2UUFza0JTSGpnSU9sdkVzbGdvLTZlZ0g4bE9qLV9ScVB0YjZodnE3RXRobjUyMTItMmNYTVphOVd4WnFDNFotQ2k1Vms2YW52OGEtVnVKTFA0cTdqdVA0aHpmcnpGdXVncHlKMjFhTndjdXJCY0MwWGVhalM40gGcAUFVX3lxTE9wb3VDcEhZaUREOXdVQ1F0WmtXX1dwT01YT0ZzSWdIemR1MnVXdGM0RUFwSVR4eTl2RTJtSVNsbUxYMmpxX04tcnBuSi1aNi0wSGVNbDZzTFdITW5pYS02X1NlMmoxU1U3WTNpSFcyLU5MTE9CV0hUZVNycDc2c0lxU0pmV0FIWEo5UlhKTE9YdzEzX2xIMzJJUVNVVA?oc=5",
+        "meta": "Breaking News, Latest News and Videos · Oct 01"
+      }
+    ],
+    "china": [
+      {
+        "name": "Unitree Robotics",
+        "robot": "Unitree G1 / H1",
+        "update": "Toborlife AI to Showcase Complete Platform Stack for Unitree Robots at IEEE Humanoids 2026",
+        "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQdElGN3VQTGlxb1ZOdGFYQ2RuY3BFdWpsWFZGVXFFaHBfMk5wSG9hQ3dWbnRwdktqeTJ4eVZ4UklkdHdYeHBhV3lqaE9FQTVpVG9lam1IRHFjdjNGWEFyZ1ZERk5xNmFPWndCSnc3UjBkV2NwQWp1akhjYmg3eDBZSTMtSHVSaERlRU5hVXhUcDZrLVh5RHZFdTM0ODEtUjVtTXBjZF9xYlZOSmVkNXh2MlJuc3pxNE5OcWpRNWprZE1BdUdDZkV0bHp5ZVd5cVE5SDM5N2xiQQ?oc=5",
+        "meta": "Detroit Free Press · Nov 19"
+      },
+      {
+        "name": "AGIBOT (Zhiyuan)",
+        "robot": "Expedition A2 / X1",
+        "update": "AgiBot gains lead in world humanoid robot uptrend",
+        "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE13Tkl1WGFjSFA0RG8wenp5YjExRXJUNV9qcGtPaDJxbDFfSTNYNHFtTENlRG9zVk1pT25ENzNCOHdpNTZjb2JORG5sLXFqTjBfLWl0d0VGUVBXNnl5WWZqOU5pU0dJVjUwWjRUU3Fka1pDek5RRVZkXzI4TlFaUQ?oc=5",
+        "meta": "China Daily · Jan 15"
+      },
+      {
+        "name": "UBTECH",
+        "robot": "Walker S1",
+        "update": "China deploys Walker S2 humanoid robots at busy international border",
+        "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOWnp3RnA2d3NfeV9sTFVNOUc5YXYwdV9tQlZrMWNtNHBkRWdfS1FZQVVDdEtqVDE1THFJc0NFbnhCNWZPMnVVVXk1a1VxR0FRamc4d0xOaVh3Um9JcWZHdDlQNTZmLVhtLTVmdl93ejZldHdiaTRuNGZCNDFlNHFLcmVRS1k4dXFlVVFhckU4ZXNQLWg3aEdvZVpMbU4?oc=5",
+        "meta": "Interesting Engineering · Jul 02"
+      },
+      {
+        "name": "Fourier Intelligence",
+        "robot": "GR-1 / GR-2",
+        "update": "A humanoid joins the RoboCanes team",
+        "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPaklOX2VXa09IcVplMlFTSGt1NkcxSm5GaVEyV194X2JuRGVpQTdCZ2hIVGsyQWROcVQ1RU1JRmtLNGFUZ2VtWVhiQ0pJNHdEb0lqSzdFRVlsQVVMX2JNdXVBcmRSQ0EzZ1BJUzRDNzloZ002X1Zrb2FzYnM5UjFyVUJ3LWVNOTR4V1E?oc=5",
+        "meta": "University of Miami News · Aug 28"
+      },
+      {
+        "name": "LimX Dynamics",
+        "robot": "CL-1 Biped",
+        "update": "Alibaba-Backed Robot Maker LimX Said to Plan Hong Kong IPO",
+        "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNS3RfdkVMYUJTa0hRcHZ5YlpQSko4VzFhYW1ERm9OZmQwcEFGcHJNY0pHRC0tVkY0TXZZZ1N4Z0FBQ0l6ZTlXeDVDaENySnVIMThlbGpWeXpTNkllSmNRcVZlN0w4RFJ2VUU0NldTeXIxVFgwVlI4NlB5QmJFemRld0d4bkI2bXJ1MkE3U1Q2Skc0Ny13RWdjOEhJblhhanNOdGdVNFFjMldIenhhSEtsaE1FQjhHRm5hSnlvWUlpU2xJT3Z6c3c?oc=5",
+        "meta": "Bloomberg.com · Aug 18"
+      },
+      {
+        "name": "Galbot Robotics",
+        "robot": "Galbot G1",
+        "update": "China's Galbot robot takes on tennis star Zheng Jie in world's first human-robot match",
+        "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5YeTRieE1QQ1hNLVhZQW5OYmlJSExJRFVkb2dzbVFHNGhKWGUzTjJ0VWoyNVlqNVFlRmlFM2pjbmtCaGJ4clNPbWNPaU5kWnoyMTVOWlJfUmcycWFHVUtTWWln?oc=5",
+        "meta": "Global Times · Aug 23"
+      },
+      {
+        "name": "Kepler Robotics",
+        "robot": "Forerunner K2",
+        "update": "Kepler Forerunner humanoid robot may be heading for a workplace near you",
+        "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFA0X2ZuMmVUXzQtbVZJTEpPRUREX2p3TU8xeDQ4RnN4cEU3Z2xIeUUzSmpjQXhMd256VnoxWUs1ZV93SThSLXR6V0wxMUI4MEs4N0FybG1RYVJGRGh6OHRPUlJNcmJEYlNJZnZQc3BmNkQ?oc=5",
+        "meta": "New Atlas · Jan 04"
+      }
+    ],
+    "europe": [
+      {
+        "name": "Agile Robots (Germany)",
+        "robot": "Agile ONE",
+        "update": "SoftBank leads $500m round for Agile Robots",
+        "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5jTi05bGFuTTJ0NElpbGNWVTk5Ynhvakx5bXotelFjb3ZKdnhlYTQxZDYwX0dGcnI0bGczeWJWaDZ5bDNVVzlwa0dXdUE2WElPN1N4WnFORHFIWkFYZHJRYjVzLXNnLXBLM2FkeEUxbm84WFJSU1V3aA?oc=5",
+        "meta": "Sifted · Nov 12"
+      },
+      {
+        "name": "NEURA Robotics (Germany)",
+        "robot": "4NE-1 Cognitive",
+        "update": "Neura Robotics and TUM open €17 million RoboGym and unveil new humanoid",
+        "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQdTNuS25tRVNOQ2Q2S1ptMUt1QkFnOEw0THVMM1RRU3MzUjBLX3pWWWtwNXRIb3oxOEJibGN3ZFpvQ1hyd25ZWENXSHB0YVdBRnBwZlR4MDNXU1l1RXJkcnV6bDh3Q2xhTm4wWkl3WUxXZEZ1YVRPRktrcDA2NFZxckFHQVpfR0w1bjFTWjBOTjVMeTRhVS1ISGZlSmU5V1ZqU1JVcjJyOUpRbkFNMXpVRlVaYm9FTjlNcHQyejZWel9ESmJTRkRr?oc=5",
+        "meta": "Robotics & Automation News · Oct 28"
+      },
+      {
+        "name": "Mentee Robotics",
+        "robot": "MenteeBot",
+        "update": "Mentee Bot V3.1 brings human-like touch to 24/7 factory floors",
+        "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNakhrT21uYXFvcWYtV2FkOG03bl9vZk5EYVNFclpiN3FqY0lxMG0zWFJmTVlMU0RMRmh3UUxnZjdSN3BZRlVZaTZmM3FNVmxlUG41N2xGa0xWeVV0Nmw1aFloR2NEUGZkb1cya2NtUmRWeERHbHFlZWNFMGdmVF9GNWdVcGFxeDZsaFJQc1RnNk8xaW9IdlkwNVVQeWl2eDNZX28wd1RjMDQ5MnRYMWJHOTZOZ0hNMnQ4VEtUbVhYX1pFLWg0?oc=5",
+        "meta": "Interesting Engineering · Feb 09"
+      },
+      {
+        "name": "PAL Robotics (Spain)",
+        "robot": "TALOS / TIAGo",
+        "update": "Astribot brings its T1 humanoid robot to North America",
+        "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOUTZBY0huNFR1RUwwRmRGN0FqX1RoRllJbkZXTWNPRko0bzZQNnVuaEtlbmNIYl9FNDZNU2ZCQk1RNzNQU3JxZ3c5X1VVeDYyd0JhcG1kaFZkRFNTYTc3a1B5Y0VtZzlySFp5aGRmYTBBeHBvcU1ibDdXVmxQYmtUNjQ2ekMxam9QalhQdktJNFM2Y3E3c3NvN2VZcWFSYTI5bGJvaUJTTFJhV0hFajN0cw?oc=5",
+        "meta": "Robotics & Automation News · Oct 02"
+      },
+      {
+        "name": "Pollen Robotics (France)",
+        "robot": "Reachy 2",
+        "update": "A Clemson student turned a Reachy Mini into a multilingual conference assistant",
+        "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNSUJPdHQwSGg3bDJJdXc0bzE3VGxvaHpQY0JLTTN1cXlwWmJJVl9lZHYtay1ZZExCVEp6Q3d4cjhYd194Y1Z2eGx0WjYxQVcwYU42TlU3SFpFWUhkMUpnVUJPSUVxSUZhTXpmN1RzcURhOFJ0b0J3YjB1VGlrLTMxSEJIQnNvR211cUItcFJ2RQ?oc=5",
+        "meta": "The Gadgeteer · Nov 07"
+      },
+      {
+        "name": "The Humanoid Co. (EU)",
+        "robot": "HMND 01 Alpha",
+        "update": "U.K.-based Humanoid secures $152M in Series A funding",
+        "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQN21Ya01UNTJubE52Umgwc05IMVVsZGJhTGwzT3lPM0tlbjJfbXVuaDJNeGhXZTV4SVVaQmkzWHU4Yk0yMlQ3VndqckdxQUpDNzFuTVNRLWtnWlF0N0dzckRZaXRMdDMyb1dRb3BMOVhqQ2lTd3otRks1MzNSUjNUTmUtTVlSeHZZc1E?oc=5",
+        "meta": "The Robot Report · Jul 21"
+      }
+    ],
+    "korea": [
+      {
+        "name": "Rainbow Robotics",
+        "robot": "HUBO / Biped",
+        "update": "Chinese robots steal the Seoul show, Korea's work offstage",
+        "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE4xOTgtbWJEYjd4SU4xblFpMk1Gdkx2QkYtMk55ajFRLXU0Z2NBeGdmZFdrekg0RFhOcWZsTjM1U1JSZ1VLMVFVN1lqallGeDYtSHg1QS1MUmM4UXc?oc=5",
+        "meta": "Aju Press · Nov 04"
+      },
+      {
+        "name": "Doosan Robotics",
+        "robot": "K-Humanoid Alliance",
+        "update": "US tech firm joins Doosan Robotics to speed up factory automation",
+        "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQQk1hbDloVEwxdl9WNXB3LUFDQmhuMURraDA3YjVBUG1xQjd5cTFLVnk3VUVPS2NZN3E2LVZwenhZTVRTUDROLTBvMWY3QkVfVDc0Z01qSkd6ZHJ6UFJCR2dWdkVGNXAzUG1RWmYxc1BiMjJFUFZaMHF2VW5PMm5aalV1OFlVYUJxSmFn?oc=5",
+        "meta": "Interesting Engineering · Jul 17"
+      },
+      {
+        "name": "WIRobotics",
+        "robot": "ALLEX Humanoid",
+        "update": "WIRobotics and Ottobock Join Forces to Expand Access to Wearable Robots Across North America",
+        "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQOENoNnhCTXFwZmxaNTB4MXJfb1Bic1VFNzJZSDVBZjZpUW05X1RMVzRlVzM1TURTZlhlYURZZTE5VDNGanYyNWZMVUxYR1FxY2t0OFVxU29rZmRlMWFWN2NaRUlpS2s4ZHM0a0gzM1NjdzF1aXVWNkQ2ZXhIWk5MUE43LUdTV2Z1Y0dUSndFN2RQZm5ZWFhrc09SR2dNS0lHaUlubTU2Z0J4NGNFOGpFMnBKaHpucm52TWd1Vg?oc=5",
+        "meta": "Orthopedics This Week · Nov 17"
+      },
+      {
+        "name": "Robotis",
+        "robot": "DYNAMIXEL-Y Drive",
+        "update": "Robotis Hands Humanoid Robots to College Students in Experiment — \"We'll Compete Head-to-Head with China Next Year\"",
+        "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE8xU3NBTFNfMkZtNWNpcDZkbkxPb3BjQ0FBUVBfMk82WkN1bl9GWkpqUlJxQzV4bjZZMzdRTkI1R2tkY0NTbUpLTnNGekFaR01GR3hLZ3FabjkyRW1ILTJZRklxRko0TFl5T0F3NjZoa2VmaF96bEE?oc=5",
+        "meta": "BigGo Finance · Aug 31"
+      }
+    ]
+  }
+}

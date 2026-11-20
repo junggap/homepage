@@ -1,0 +1,38 @@
+name: Daily Physical AI Newspaper Publisher
+
+on:
+  schedule:
+    # Runs at 22:00 UTC every day (07:00 AM KST Seoul Time)
+    - cron: '0 22 * * *'
+  workflow_dispatch: # Allows manual trigger from the GitHub web UI
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Run Physical AI crawler & generate newspaper
+        run: |
+          python3 news/crawler.py
+
+      - name: Commit and push updates
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add news/
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Publish daily Physical AI Chronicle: $(date +'%Y-%m-%d')"
+            git push
+          fi

@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>The Physical AI Chronicle — Daily Mobile Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --paper-bg: #faf8f5;
+            --paper-card: #ffffff;
+            --ink-primary: #18181b;
+            --ink-secondary: #3f3f46;
+            --ink-muted: #71717a;
+            --rule-dark: #27272a;
+            --rule-light: #e4e4e7;
+            --accent: #b91c1c;
+            --tag-bg: #f4f4f5;
+            --font-masthead: 'Cinzel', serif;
+            --font-body: 'Newsreader', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        [data-theme="dark"] {
+            --paper-bg: #09090b;
+            --paper-card: #141417;
+            --ink-primary: #f4f4f5;
+            --ink-secondary: #d4d4d8;
+            --ink-muted: #a1a1aa;
+            --rule-dark: #52525b;
+            --rule-light: #27272a;
+            --accent: #ef4444;
+            --tag-bg: #1e1e24;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--paper-bg);
+            color: var(--ink-primary);
+            font-family: var(--font-body);
+            line-height: 1.55;
+            font-size: 16.5px;
+            padding: 12px 14px 60px;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-sans);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 6px 0 10px;
+            border-bottom: 1px solid var(--rule-light);
+            margin-bottom: 14px;
+        }
+
+        .back-link {
+            color: var(--ink-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 0;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--rule-dark);
+            padding: 5px 12px;
+            font-family: var(--font-sans);
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--ink-primary);
+            border-radius: 4px;
+        }
+
+        header.masthead {
+            text-align: center;
+            padding: 10px 0 16px;
+            border-bottom: 3px double var(--rule-dark);
+            margin-bottom: 16px;
+        }
+
+        .sub-masthead-top {
+            font-family: var(--font-sans);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--ink-muted);
+            margin-bottom: 4px;
+        }
+
+        h1.newspaper-title {
+            font-family: var(--font-masthead);
+            font-size: clamp(28px, 7vw, 56px);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            line-height: 1.08;
+            color: var(--ink-primary);
+            text-transform: uppercase;
+        }
+
+        .masthead-tagline {
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: 14px;
+            color: var(--ink-secondary);
+            margin-top: 6px;
+        }
+
+        .issue-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--rule-dark);
+            border-bottom: 1px solid var(--rule-dark);
+            padding: 5px 8px;
+            margin-top: 12px;
+            font-family: var(--font-sans);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--ink-secondary);
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        /* Search & Archive Box */
+        .archive-search-box {
+            margin: 16px 0 20px;
+            background-color: var(--paper-card);
+            border: 1px solid var(--rule-light);
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+        }
+
+        .search-input-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 10px 14px;
+            font-family: var(--font-sans);
+            font-size: 14.5px;
+            background-color: var(--paper-bg);
+            border: 1px solid var(--rule-dark);
+            border-radius: 6px;
+            color: var(--ink-primary);
+            outline: none;
+        }
+        .search-input:focus {
+            border-color: var(--accent);
+        }
+
+        .search-results {
+            margin-top: 12px;
+            display: none;
+            max-height: 320px;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            padding: 8px 10px;
+            border-bottom: 1px solid var(--rule-light);
+            font-size: 14px;
+        }
+        .search-result-item:last-child { border-bottom: none; }
+        .search-result-item a {
+            color: var(--ink-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .search-result-item a:hover { color: var(--accent); }
+        .search-meta {
+            font-family: var(--font-sans);
+            font-size: 10.5px;
+            color: var(--ink-muted);
+            margin-top: 3px;
+        }
+
+        .lead-story {
+            padding: 14px 0 20px;
+            border-bottom: 1px solid var(--rule-light);
+            margin-bottom: 22px;
+        }
+
+        .badge {
+            display: inline-block;
+            font-family: var(--font-sans);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            padding: 3px 8px;
+            background-color: var(--accent);
+            color: #ffffff;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+
+        .lead-headline {
+            font-family: var(--font-body);
+            font-size: clamp(22px, 5.5vw, 34px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .lead-headline a {
+            color: var(--ink-primary);
+            text-decoration: none;
+        }
+
+        .lead-byline {
+            font-family: var(--font-sans);
+            font-size: 11px;
+            color: var(--ink-muted);
+            margin-bottom: 12px;
+        }
+
+        .section-header {
+            font-family: var(--font-sans);
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--ink-primary);
+            padding: 8px 0;
+            border-top: 2px solid var(--rule-dark);
+            border-bottom: 1px solid var(--rule-dark);
+            margin: 28px 0 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .story-card {
+            background-color: var(--paper-card);
+            border: 1px solid var(--rule-light);
+            border-left: 3px solid var(--accent);
+            border-radius: 6px;
+            padding: 14px 16px;
+            margin-bottom: 14px;
+        }
+
+        .story-meta {
+            font-family: var(--font-sans);
+            font-size: 10.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .story-card h3 {
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 6px;
+        }
+        .story-card h3 a {
+            color: var(--ink-primary);
+            text-decoration: none;
+        }
+
+        .paper-card {
+            background-color: var(--paper-card);
+            border: 1px solid var(--rule-light);
+            border-radius: 6px;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+        }
+
+        .paper-tag {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 600;
+            background-color: var(--tag-bg);
+            padding: 2px 6px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-bottom: 6px;
+            color: var(--ink-primary);
+        }
+
+        .paper-title {
+            font-family: var(--font-body);
+            font-size: 16.5px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 6px;
+        }
+        .paper-title a {
+            color: var(--ink-primary);
+            text-decoration: none;
+        }
+
+        .paper-takeaway {
+            font-size: 14px;
+            color: var(--ink-secondary);
+            line-height: 1.45;
+        }
+
+        .radar-region-title {
+            font-family: var(--font-sans);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--ink-secondary);
+            margin: 18px 0 10px;
+        }
+
+        .radar-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .radar-card {
+            background-color: var(--paper-card);
+            border: 1px solid var(--rule-light);
+            border-radius: 6px;
+            padding: 12px 14px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+
+        .radar-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+        }
+
+        .radar-company {
+            font-family: var(--font-sans);
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--ink-primary);
+        }
+
+        .radar-robot {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--ink-muted);
+        }
+
+        .radar-update {
+            font-family: var(--font-body);
+            font-size: 15.5px;
+            line-height: 1.35;
+            margin-bottom: 6px;
+        }
+        .radar-update a {
+            color: var(--ink-primary);
+            text-decoration: none;
+        }
+        .radar-update a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .radar-meta {
+            font-family: var(--font-sans);
+            font-size: 10.5px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--rule-light);
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 11.5px;
+            color: var(--ink-muted);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="top-bar">
+        <a href="../" class="back-link">← Home</a>
+        <div>
+            <button class="theme-toggle" onclick="toggleTheme()">🌓 Dark / Light</button>
+        </div>
+    </div>
+
+    <header class="masthead">
+        <div class="sub-masthead-top">Autonomous Systems · Embodied AI · Humanoids</div>
+        <h1 class="newspaper-title">The Physical AI Chronicle</h1>
+        <div class="masthead-tagline">"Tracking the emergence of intelligence in the physical world."</div>
+        
+        <div class="issue-bar">
+            <span>Vol. I · Daily</span>
+            <span>Fri, Nov 20, 2026</span>
+            <span>Seoul, KR</span>
+        </div>
+    </header>
+
+    <!-- Interactive Archive Search -->
+    <section class="archive-search-box">
+        <div class="search-input-wrapper">
+            <input type="text" id="archiveSearch" class="search-input" placeholder="🔍 Search archive by company, keyword, or date..." oninput="handleSearch(this.value)">
+        </div>
+        <div id="searchResults" class="search-results"></div>
+    </section>
+
+    <main id="dailyContent">
+        <article class="lead-story">
+            <span class="badge">Lead Story</span>
+            <h2 class="lead-headline">
+                <a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxNYWRTNURMRXFyT3lOZFBHMjlMR1VJRjdYeFZUQ2tSRkV3VnR4UVBNTWEycTc4QWdtRW42RGlSTldKdXJhblRuU1FmUjRzYmlCM3psU3hjNWtKbmZsNTdxVmJHNWFndkxzRjBvRzRMU1FHU0dTN3pIYVNSdS1MT283VkRzcUdTRExPajcxVXI1WTMwdXp4dkVNR2VPUQ?oc=5" target="_blank" rel="noopener">XPENG to Showcase Its Physical AI Push at Annual AI Day, Featuring Its Latest Humanoid Robot in Action</a>
+            </h2>
+            <div class="lead-byline">
+                <span>Source: Yahoo Finance · Real-time Feed</span>
+            </div>
+        </article>
+
+        <div class="section-header">
+            <span>Industry & Hardware Wire</span>
+            <span>⚡ Global</span>
+        </div>
+
+        
+        <div class="story-card">
+            <div class="story-meta">Forbes</div>
+            <h3><a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxOenMxVDdVQnZseVNJallrT0pGQmNTczUyS3RYVjRwczI1b0pMTlJTeTc4S09DSEpUTk5kdzhUaGo3ZEQyb2ZrWEhaelNKSkxwdEpuSlk1bmVxR3JYdTlYUTNiQVFXZk1NM0NKNkIyNFdYSTNKSGtyNFJDUWtGZkFHZmRXTVJoRlVRSHZ5ZFc4SVUwSjMySHM1aXVVaU5rdXBLMHpVdTVWcFI5T20zeXlPYnowUVg4OFpT?oc=5" target="_blank" rel="noopener">Genesis AI Raised $500 Million To Create Human-Level Robot Hands</a></h3>
+        </div>
+        
+        <div class="story-card">
+            <div class="story-meta">Engineering.com</div>
+            <h3><a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxQQUtyRjhoc1oyUGRGUkdKdks2WU9sMFVMRjZQVzdxbDUwVnhGNF9QZHQwNzI0QWlPS2ZiWlRiLVJhYUNIMUJZM3pJMFBPRXowMnlTdWhyWXlXWEVIc2JvZnpBNmNrZ09PV1B1T1dDQ2N6MW5YYk8yRGdoSHlLVHNIQXRabmdtR29oMnpINHh1NlBtWUwy?oc=5" target="_blank" rel="noopener">Mitsubishi Electric CNC work cell uses AI and humanoid robots</a></h3>
+        </div>
+        
+        <div class="story-card">
+            <div class="story-meta">Gasgoo</div>
+            <h3><a href="https://news.google.com/rss/articles/CBMihAJBVV95cUxPSEpiZUVWc1BIZFI2X3JCY3MzWkwwbXFtNFhmMkVpRWhhSmVYTnZIc291ZTBSbm9TT1VJQ2Z1TmYtY1VKU2dtZTlvSDJOb0JYM0hkc1JSSnRBUUNIZGtPUEswYjZjai1rUlNPZmFXaDBhRWN4MVgwcGhDVjVMU2lJUEVOS1ZBMWJrMGJEVnR3T0JGdGhfX2FEN1ROcFoxc1JkR19xRWItWG91QzdEbWdnd1o0bWU5TDFoeGdVbWFpYXdJYUdBNE1wUDNUMldsOUdLU1JZelZYcWhpSnFXTDN2M2JCSVdUMkxZdUI4dTlLLVJDNFNPaG1HOUxkSTJVU0FIbW14Mg?oc=5" target="_blank" rel="noopener">Black Sesame Technologies Establishes Embodied AI Headquarters in Shenzhen to Accelerate Robot Commercialization</a></h3>
+        </div>
+        
+
+        <div class="section-header">
+            <span>ArXiv Preprints</span>
+            <span>[cs.RO / cs.AI]</span>
+        </div>
+
+        
+        <div class="paper-card">
+            <span class="paper-tag">cs.RO</span>
+            <div class="paper-title">
+                <a href="https://arxiv.org/abs/2611.25005" target="_blank" rel="noopener">Inhabitant: An Agent Framework for Long-Horizon Human-Scene Interaction with Spatial Control and Quantitative Feedback</a>
+            </div>
+            <p class="paper-takeaway">arXiv:2611.25005v1 Announce Type: new Abstract: Recent work on human-scene interaction (HSI) generation moves from single interactions to long-horizon interaction, where a language-model agent plans and executes a seq...</p>
+        </div>
+        
+        <div class="paper-card">
+            <span class="paper-tag">cs.RO</span>
+            <div class="paper-title">
+                <a href="https://arxiv.org/abs/2611.25067" target="_blank" rel="noopener">Mapping the Wind to Find the Source: Online Physics-Informed Gas Source Localization with Mobile Robots</a>
+            </div>
+            <p class="paper-takeaway">arXiv:2611.25067v1 Announce Type: new Abstract: Gas Source Localization (GSL) with mobile robots is challenging because wind and gas measurements are spatially sparse, noisy, and potentially affected by robot motion. ...</p>
+        </div>
+        
+        <div class="paper-card">
+            <span class="paper-tag">cs.RO</span>
+            <div class="paper-title">
+                <a href="https://arxiv.org/abs/2611.25105" target="_blank" rel="noopener">MAWAM: A Multi-Agent World-Action Model for Coordinated Manipulation</a>
+            </div>
+            <p class="paper-takeaway">arXiv:2611.25105v1 Announce Type: new Abstract: Every move in a robot team changes the world in which its teammates must act. Coordinated manipulation therefore calls for predicting the team's actions together with th...</p>
+        </div>
+        
+        <div class="paper-card">
+            <span class="paper-tag">cs.RO</span>
+            <div class="paper-title">
+                <a href="https://arxiv.org/abs/2611.25134" target="_blank" rel="noopener">GEMS: Generation and Experience Memory for Subgoal-Guided Long-Horizon World Model Planning</a>
+            </div>
+            <p class="paper-takeaway">arXiv:2611.25134v1 Announce Type: new Abstract: Visual world models enable effective short-horizon goal-conditioned planning, such as reaching nearby targets and pushing objects over short distances, by predicting can...</p>
+        </div>
+        
+
+        <div class="section-header">
+            <span>Global Radar: Company Updates & Breakthroughs</span>
+            <span>USA · China · Europe · Korea</span>
+        </div>
+
+        <div class="radar-region-title">🇺🇸 United States (Foundation Models & Enterprise)</div>
+        <div class="radar-grid">
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Figure AI</span>
+                    <span class="radar-robot">Figure 02 / 03</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMiV0FVX3lxTE5KR3kxQ2pJRFktUWZBTWFnRDZla1BVV1NXN2lobTREM0JYdGp5XzNxUGZ4MmdaTThWUGVnUEVpVHhUc3FuMFdIcEdIbG9xWnJYeG9wekhrUQ?oc=5" target="_blank" rel="noopener">F.02 Decommission</a>
+                </div>
+                <div class="radar-meta">Figure · Sep 30</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Tesla</span>
+                    <span class="radar-robot">Optimus Gen 2/3</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxOc0phYmNKSHBkdUo0RlI1Slhsb2dxdDF0UjdwWlRyVm9DMVdYQ2pFbUd6UTJNY055T0poWllpUGwtdGtaclFMN1NRT01YUWQ1TlNuMDdKRXpMTHhzcGVvRkpDNkJjVkMybTI0a2YzRkhLazJOckFUazExNkZmWkpWYk5OTzVyUUJpdDEzLVhvOGhZWDg?oc=5" target="_blank" rel="noopener">Tesla Optimus Demo Coming in 1-2 Months: What Musk Said - BASENOR</a>
+                </div>
+                <div class="radar-meta">Tesla Accessories · Nov 19</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Boston Dynamics</span>
+                    <span class="radar-robot">Electric Atlas</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxNTXR3cXZCX1NCUDNGLUQwSVJyc0dWdy05dnBaN0VMcUx6LUY3emF5c3J1OU1nMS1BS0ZoTDYtNHpjV2dMX2JNT25IYlVKd2Jud3lUUFd4M2xmWnJab3l2Y0tGY19CaExRdHV6Y3JzaW1TamExUDF1WW9mRllWX0hXc3ZYdXg2cGxOaGVTODg0aDZFR1c2NUhqcll3?oc=5" target="_blank" rel="noopener">Boston Dynamics & GlobalFoundries Expand Robotics Collaboration</a>
+                </div>
+                <div class="radar-meta">Boston Dynamics · Nov 17</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">1X Technologies</span>
+                    <span class="radar-robot">NEO / EVE</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMi0gFBVV95cUxPcnRLZm5sUm15MkpINk1ZUDNtQWNzc3FfeElIc1hvX2lodU9WaXRLeklZOFEtQUp6QjM1OWxJa3U2blA5a204cWFDUE5adkZ2Tmh5UXpxQVFOS2hETlpLWEdJamlUVkFpN2VRYXByaHZ0eXV3RkJ6bXZKSDMyVWl4bzZ0WUVic2VBOEJzZ0ZYV0RMMTZKaXpfMU4xdHppOFMya2NHa2tjbmp1ODRJX09SSjQ3NXdXRzF2TlVNMTFhcXFfZmF2QnJRQnN0TjREUVZjZ0E?oc=5" target="_blank" rel="noopener">Your Humanoid Robot Might Also Be Your Smart Home Hub: Disembodied Neo Head From 1X</a>
+                </div>
+                <div class="radar-meta">Forbes · Nov 03</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Agility Robotics</span>
+                    <span class="radar-robot">Digit</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMia0FVX3lxTE90Y19oRWRwaE5wbmd2OFhPZUsxdUVyLU9yTm9lUDJLdEZkT1U5NWdjdWdYRG9oWF9TRVpHT1N3TzZQbjI3cDBIYjdBcXdlTWNLckkwYndTbkdLblpLN2xNNG80V01MaDBGVHhz?oc=5" target="_blank" rel="noopener">The Robot I Didn’t Expect to Build</a>
+                </div>
+                <div class="radar-meta">IEEE Spectrum · Oct 19</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Apptronik</span>
+                    <span class="radar-robot">Apollo</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxObW01STRBOHJNWjdIdDhmWlVLSEtWbm1vRjRNa1VPNW93REhQNk15QVN6YnhwWWYwblZlTnNCVHIxUzJoeUlKMmlBMDhJNy1fWTZYc0FqUnFDTDRzdUFtRWxDT2RyXzZUbWpzSnMyTHlwLTRfWUhzTTRMS2Q3Rk1SVXc2RDlsblBTYXo0Q3BZWVVJYjAxeHJJVjMxTkRhbEo3UjNEc0U5SnI3QURCdzhvdWVxV0RocnVxbmdYeUJDVkNkVjA?oc=5" target="_blank" rel="noopener">GXO Doubles Down On Humanoids With Plan For Up To 1,000 Apptronik Robots</a>
+                </div>
+                <div class="radar-meta">Forbes · Nov 12</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Physical Intelligence</span>
+                    <span class="radar-robot">π0 (Pi-Zero VLA)</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMi3gFBVV95cUxNcXRCSTdHUE5iSm9VdUt1bnNhdkMwTmZmSU9xS3JTWjFUclF1eGhRRGNqX1RhNXcyVEhnSjcxVk91aEI2UnRpQXdDZXJpS1QycmRmRWFCTExoWmVSMnNiZmZaYVNJY1NmbEkxWVFJeFZqYzJ4WE83aXg0Y3FzNGlZOHNESGc3UklMRTNpbzBPRThNaXQ2aGRuQVZkZGJJQzAtdFlaUjExWTZUOF9BSE9wdHBLMVhfWVdTMnlScktSSVdqeEtLOTVzRHEzNVZsU0o0Z1hydmhkUHNkVDJtcUE?oc=5" target="_blank" rel="noopener">Physical Intelligence, a hot robotics startup, says its new robot brain can figure out tasks it was never taught</a>
+                </div>
+                <div class="radar-meta">TechCrunch · Apr 16</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Skild AI</span>
+                    <span class="radar-robot">Skild Brain VLA</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxPem5reFYtX2ZaOEFvWUxUeW5HRkhZeGxnLWo2dUgxSm5yektocFlGd0Q2enE2S2RCUnlGVFF4SnRBR1h3THFJbTMyRVZqZDM0Z01ZUDNERFBvWWRTZXU1Uzk0QmJRREhBZ3k0VDY2TXRndzJ3TDVoZmh4NjZqbkZzNVpqYWsyNFQ5ZWFn?oc=5" target="_blank" rel="noopener">Skild AI unveils S1 flagship robot foundation model</a>
+                </div>
+                <div class="radar-meta">The Robot Report · Aug 31</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Generalist</span>
+                    <span class="radar-robot">Foundation Embodied AI</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxPUElxSnpXaHlRcnFucFFNVkdNYXRxSzJyOUJTWHJIczg3MmZIN1MyTVFORGlWbGZka1QyTlhNSVp4cnFDQlFSOXJ5eHFuZ3lfekFuQkJiZm9WczBkNzBKSVVwdEdkRFo2emRKaDU4UlJ4bVl3a1pHbExkcXMxY3M1T1Z0SUV5NGhVUDI3UGcwZEtEdVJ3NTAyZDNrd1lOdWRkZWp5VjN3?oc=5" target="_blank" rel="noopener">Elite Robots Collaborates with Generalist AI on Next-Gen Embodied AI</a>
+                </div>
+                <div class="radar-meta">Yahoo Finance · Jul 20</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Genesis AI</span>
+                    <span class="radar-robot">Physics / World Model</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE4yUmg0NEJRUTZMMTJ1eFFGcnNtQVNyVnowS2dGN29mTS14UFFKS29XdmZIRWt2NGlXZ1NTNDQxUlk5b1Z2aWw5Vm9oNHRXejQ2LVRHN2QxWk9BUXJQZWRpUjFrTHVReExUTUp1NHJmVHhZRWVqT1MtN2tlMnZtems?oc=5" target="_blank" rel="noopener">Genesis AI introduces GENE-26.5 robotic model</a>
+                </div>
+                <div class="radar-meta">Engineering.com · May 07</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Dyna Robotics</span>
+                    <span class="radar-robot">Taku / Dyna-2.1</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxQLUZvSHN1LWVEZzZ3ZURFTGtGMGhTSkFMd0x2UUFza0JTSGpnSU9sdkVzbGdvLTZlZ0g4bE9qLV9ScVB0YjZodnE3RXRobjUyMTItMmNYTVphOVd4WnFDNFotQ2k1Vms2YW52OGEtVnVKTFA0cTdqdVA0aHpmcnpGdXVncHlKMjFhTndjdXJCY0MwWGVhalM40gGcAUFVX3lxTE9wb3VDcEhZaUREOXdVQ1F0WmtXX1dwT01YT0ZzSWdIemR1MnVXdGM0RUFwSVR4eTl2RTJtSVNsbUxYMmpxX04tcnBuSi1aNi0wSGVNbDZzTFdITW5pYS02X1NlMmoxU1U3WTNpSFcyLU5MTE9CV0hUZVNycDc2c0lxU0pmV0FIWEo5UlhKTE9YdzEzX2xIMzJJUVNVVA?oc=5" target="_blank" rel="noopener">Meet Taku: New AI robot loads washers, folds towels and stocks shelves - ABC News</a>
+                </div>
+                <div class="radar-meta">Breaking News, Latest News and Videos · Oct 01</div>
+            </div>
+            
+        </div>
+
+        <div class="radar-region-title">🇨🇳 China (Manufacturing Scale & Cost Efficiency)</div>
+        <div class="radar-grid">
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Unitree Robotics</span>
+                    <span class="radar-robot">Unitree G1 / H1</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMi1wFBVV95cUxQdElGN3VQTGlxb1ZOdGFYQ2RuY3BFdWpsWFZGVXFFaHBfMk5wSG9hQ3dWbnRwdktqeTJ4eVZ4UklkdHdYeHBhV3lqaE9FQTVpVG9lam1IRHFjdjNGWEFyZ1ZERk5xNmFPWndCSnc3UjBkV2NwQWp1akhjYmg3eDBZSTMtSHVSaERlRU5hVXhUcDZrLVh5RHZFdTM0ODEtUjVtTXBjZF9xYlZOSmVkNXh2MlJuc3pxNE5OcWpRNWprZE1BdUdDZkV0bHp5ZVd5cVE5SDM5N2xiQQ?oc=5" target="_blank" rel="noopener">Toborlife AI to Showcase Complete Platform Stack for Unitree Robots at IEEE Humanoids 2026</a>
+                </div>
+                <div class="radar-meta">Detroit Free Press · Nov 19</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">AGIBOT (Zhiyuan)</span>
+                    <span class="radar-robot">Expedition A2 / X1</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMifkFVX3lxTE13Tkl1WGFjSFA0RG8wenp5YjExRXJUNV9qcGtPaDJxbDFfSTNYNHFtTENlRG9zVk1pT25ENzNCOHdpNTZjb2JORG5sLXFqTjBfLWl0d0VGUVBXNnl5WWZqOU5pU0dJVjUwWjRUU3Fka1pDek5RRVZkXzI4TlFaUQ?oc=5" target="_blank" rel="noopener">AgiBot gains lead in world humanoid robot uptrend</a>
+                </div>
+                <div class="radar-meta">China Daily · Jan 15</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">UBTECH</span>
+                    <span class="radar-robot">Walker S1</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxOWnp3RnA2d3NfeV9sTFVNOUc5YXYwdV9tQlZrMWNtNHBkRWdfS1FZQVVDdEtqVDE1THFJc0NFbnhCNWZPMnVVVXk1a1VxR0FRamc4d0xOaVh3Um9JcWZHdDlQNTZmLVhtLTVmdl93ejZldHdiaTRuNGZCNDFlNHFLcmVRS1k4dXFlVVFhckU4ZXNQLWg3aEdvZVpMbU4?oc=5" target="_blank" rel="noopener">China deploys Walker S2 humanoid robots at busy international border</a>
+                </div>
+                <div class="radar-meta">Interesting Engineering · Jul 02</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Fourier Intelligence</span>
+                    <span class="radar-robot">GR-1 / GR-2</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxPaklOX2VXa09IcVplMlFTSGt1NkcxSm5GaVEyV194X2JuRGVpQTdCZ2hIVGsyQWROcVQ1RU1JRmtLNGFUZ2VtWVhiQ0pJNHdEb0lqSzdFRVlsQVVMX2JNdXVBcmRSQ0EzZ1BJUzRDNzloZ002X1Zrb2FzYnM5UjFyVUJ3LWVNOTR4V1E?oc=5" target="_blank" rel="noopener">A humanoid joins the RoboCanes team</a>
+                </div>
+                <div class="radar-meta">University of Miami News · Aug 28</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">LimX Dynamics</span>
+                    <span class="radar-robot">CL-1 Biped</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxNS3RfdkVMYUJTa0hRcHZ5YlpQSko4VzFhYW1ERm9OZmQwcEFGcHJNY0pHRC0tVkY0TXZZZ1N4Z0FBQ0l6ZTlXeDVDaENySnVIMThlbGpWeXpTNkllSmNRcVZlN0w4RFJ2VUU0NldTeXIxVFgwVlI4NlB5QmJFemRld0d4bkI2bXJ1MkE3U1Q2Skc0Ny13RWdjOEhJblhhanNOdGdVNFFjMldIenhhSEtsaE1FQjhHRm5hSnlvWUlpU2xJT3Z6c3c?oc=5" target="_blank" rel="noopener">Alibaba-Backed Robot Maker LimX Said to Plan Hong Kong IPO</a>
+                </div>
+                <div class="radar-meta">Bloomberg.com · Aug 18</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Galbot Robotics</span>
+                    <span class="radar-robot">Galbot G1</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMiYkFVX3lxTE5YeTRieE1QQ1hNLVhZQW5OYmlJSExJRFVkb2dzbVFHNGhKWGUzTjJ0VWoyNVlqNVFlRmlFM2pjbmtCaGJ4clNPbWNPaU5kWnoyMTVOWlJfUmcycWFHVUtTWWln?oc=5" target="_blank" rel="noopener">China's Galbot robot takes on tennis star Zheng Jie in world's first human-robot match</a>
+                </div>
+                <div class="radar-meta">Global Times · Aug 23</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Kepler Robotics</span>
+                    <span class="radar-robot">Forerunner K2</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMicEFVX3lxTFA0X2ZuMmVUXzQtbVZJTEpPRUREX2p3TU8xeDQ4RnN4cEU3Z2xIeUUzSmpjQXhMd256VnoxWUs1ZV93SThSLXR6V0wxMUI4MEs4N0FybG1RYVJGRGh6OHRPUlJNcmJEYlNJZnZQc3BmNkQ?oc=5" target="_blank" rel="noopener">Kepler Forerunner humanoid robot may be heading for a workplace near you</a>
+                </div>
+                <div class="radar-meta">New Atlas · Jan 04</div>
+            </div>
+            
+        </div>
+
+        <div class="radar-region-title">🇪🇺 Europe (Industrial Safety & Precision Automation)</div>
+        <div class="radar-grid">
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Agile Robots (Germany)</span>
+                    <span class="radar-robot">Agile ONE</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE5jTi05bGFuTTJ0NElpbGNWVTk5Ynhvakx5bXotelFjb3ZKdnhlYTQxZDYwX0dGcnI0bGczeWJWaDZ5bDNVVzlwa0dXdUE2WElPN1N4WnFORHFIWkFYZHJRYjVzLXNnLXBLM2FkeEUxbm84WFJSU1V3aA?oc=5" target="_blank" rel="noopener">SoftBank leads $500m round for Agile Robots</a>
+                </div>
+                <div class="radar-meta">Sifted · Nov 12</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">NEURA Robotics (Germany)</span>
+                    <span class="radar-robot">4NE-1 Cognitive</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxQdTNuS25tRVNOQ2Q2S1ptMUt1QkFnOEw0THVMM1RRU3MzUjBLX3pWWWtwNXRIb3oxOEJibGN3ZFpvQ1hyd25ZWENXSHB0YVdBRnBwZlR4MDNXU1l1RXJkcnV6bDh3Q2xhTm4wWkl3WUxXZEZ1YVRPRktrcDA2NFZxckFHQVpfR0w1bjFTWjBOTjVMeTRhVS1ISGZlSmU5V1ZqU1JVcjJyOUpRbkFNMXpVRlVaYm9FTjlNcHQyejZWel9ESmJTRkRr?oc=5" target="_blank" rel="noopener">Neura Robotics and TUM open €17 million RoboGym and unveil new humanoid</a>
+                </div>
+                <div class="radar-meta">Robotics & Automation News · Oct 28</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Mentee Robotics</span>
+                    <span class="radar-robot">MenteeBot</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxNakhrT21uYXFvcWYtV2FkOG03bl9vZk5EYVNFclpiN3FqY0lxMG0zWFJmTVlMU0RMRmh3UUxnZjdSN3BZRlVZaTZmM3FNVmxlUG41N2xGa0xWeVV0Nmw1aFloR2NEUGZkb1cya2NtUmRWeERHbHFlZWNFMGdmVF9GNWdVcGFxeDZsaFJQc1RnNk8xaW9IdlkwNVVQeWl2eDNZX28wd1RjMDQ5MnRYMWJHOTZOZ0hNMnQ4VEtUbVhYX1pFLWg0?oc=5" target="_blank" rel="noopener">Mentee Bot V3.1 brings human-like touch to 24/7 factory floors</a>
+                </div>
+                <div class="radar-meta">Interesting Engineering · Feb 09</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">PAL Robotics (Spain)</span>
+                    <span class="radar-robot">TALOS / TIAGo</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxOUTZBY0huNFR1RUwwRmRGN0FqX1RoRllJbkZXTWNPRko0bzZQNnVuaEtlbmNIYl9FNDZNU2ZCQk1RNzNQU3JxZ3c5X1VVeDYyd0JhcG1kaFZkRFNTYTc3a1B5Y0VtZzlySFp5aGRmYTBBeHBvcU1ibDdXVmxQYmtUNjQ2ekMxam9QalhQdktJNFM2Y3E3c3NvN2VZcWFSYTI5bGJvaUJTTFJhV0hFajN0cw?oc=5" target="_blank" rel="noopener">Astribot brings its T1 humanoid robot to North America</a>
+                </div>
+                <div class="radar-meta">Robotics & Automation News · Oct 02</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Pollen Robotics (France)</span>
+                    <span class="radar-robot">Reachy 2</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxNSUJPdHQwSGg3bDJJdXc0bzE3VGxvaHpQY0JLTTN1cXlwWmJJVl9lZHYtay1ZZExCVEp6Q3d4cjhYd194Y1Z2eGx0WjYxQVcwYU42TlU3SFpFWUhkMUpnVUJPSUVxSUZhTXpmN1RzcURhOFJ0b0J3YjB1VGlrLTMxSEJIQnNvR211cUItcFJ2RQ?oc=5" target="_blank" rel="noopener">A Clemson student turned a Reachy Mini into a multilingual conference assistant</a>
+                </div>
+                <div class="radar-meta">The Gadgeteer · Nov 07</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">The Humanoid Co. (EU)</span>
+                    <span class="radar-robot">HMND 01 Alpha</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxQN21Ya01UNTJubE52Umgwc05IMVVsZGJhTGwzT3lPM0tlbjJfbXVuaDJNeGhXZTV4SVVaQmkzWHU4Yk0yMlQ3VndqckdxQUpDNzFuTVNRLWtnWlF0N0dzckRZaXRMdDMyb1dRb3BMOVhqQ2lTd3otRks1MzNSUjNUTmUtTVlSeHZZc1E?oc=5" target="_blank" rel="noopener">U.K.-based Humanoid secures $152M in Series A funding</a>
+                </div>
+                <div class="radar-meta">The Robot Report · Jul 21</div>
+            </div>
+            
+        </div>
+
+        <div class="radar-region-title">🇰🇷 South Korea (K-Humanoid Alliance & Wearables)</div>
+        <div class="radar-grid">
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Rainbow Robotics</span>
+                    <span class="radar-robot">HUBO / Biped</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE4xOTgtbWJEYjd4SU4xblFpMk1Gdkx2QkYtMk55ajFRLXU0Z2NBeGdmZFdrekg0RFhOcWZsTjM1U1JSZ1VLMVFVN1lqallGeDYtSHg1QS1MUmM4UXc?oc=5" target="_blank" rel="noopener">Chinese robots steal the Seoul show, Korea's work offstage</a>
+                </div>
+                <div class="radar-meta">Aju Press · Nov 04</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Doosan Robotics</span>
+                    <span class="radar-robot">K-Humanoid Alliance</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxQQk1hbDloVEwxdl9WNXB3LUFDQmhuMURraDA3YjVBUG1xQjd5cTFLVnk3VUVPS2NZN3E2LVZwenhZTVRTUDROLTBvMWY3QkVfVDc0Z01qSkd6ZHJ6UFJCR2dWdkVGNXAzUG1RWmYxc1BiMjJFUFZaMHF2VW5PMm5aalV1OFlVYUJxSmFn?oc=5" target="_blank" rel="noopener">US tech firm joins Doosan Robotics to speed up factory automation</a>
+                </div>
+                <div class="radar-meta">Interesting Engineering · Jul 17</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">WIRobotics</span>
+                    <span class="radar-robot">ALLEX Humanoid</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxQOENoNnhCTXFwZmxaNTB4MXJfb1Bic1VFNzJZSDVBZjZpUW05X1RMVzRlVzM1TURTZlhlYURZZTE5VDNGanYyNWZMVUxYR1FxY2t0OFVxU29rZmRlMWFWN2NaRUlpS2s4ZHM0a0gzM1NjdzF1aXVWNkQ2ZXhIWk5MUE43LUdTV2Z1Y0dUSndFN2RQZm5ZWFhrc09SR2dNS0lHaUlubTU2Z0J4NGNFOGpFMnBKaHpucm52TWd1Vg?oc=5" target="_blank" rel="noopener">WIRobotics and Ottobock Join Forces to Expand Access to Wearable Robots Across North America</a>
+                </div>
+                <div class="radar-meta">Orthopedics This Week · Nov 17</div>
+            </div>
+            
+            <div class="radar-card">
+                <div class="radar-card-header">
+                    <span class="radar-company">Robotis</span>
+                    <span class="radar-robot">DYNAMIXEL-Y Drive</span>
+                </div>
+                <div class="radar-update">
+                    <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE8xU3NBTFNfMkZtNWNpcDZkbkxPb3BjQ0FBUVBfMk82WkN1bl9GWkpqUlJxQzV4bjZZMzdRTkI1R2tkY0NTbUpLTnNGekFaR01GR3hLZ3FabjkyRW1ILTJZRklxRko0TFl5T0F3NjZoa2VmaF96bEE?oc=5" target="_blank" rel="noopener">Robotis Hands Humanoid Robots to College Students in Experiment — "We'll Compete Head-to-Head with China Next Year"</a>
+                </div>
+                <div class="radar-meta">BigGo Finance · Aug 31</div>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer>
+        <p>The Physical AI Chronicle · Daily Mobile Edition</p>
+        <p style="margin-top: 4px;">Curated by Antigravity Autonomous Agent · Hosted on GitHub Pages</p>
+    </footer>
+</div>
+
+<script>
+    function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+
+    if (localStorage.getItem('theme') === 'dark' || 
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    // Archive Search Engine
+    let searchCatalog = [];
+    async function loadArchiveIndex() {
+        try {
+            const res = await fetch('archive/index.json');
+            if (res.ok) {
+                searchCatalog = await res.json();
+            }
+        } catch(e) {
+            console.log('Archive catalog not yet available.');
+        }
+    }
+    loadArchiveIndex();
+
+    function handleSearch(query) {
+        const container = document.getElementById('searchResults');
+        query = query.trim().toLowerCase();
+        if (!query || query.length < 2) {
+            container.style.display = 'none';
+            container.innerHTML = '';
+            return;
+        }
+
+        const matches = [];
+        for (const edition of searchCatalog) {
+            for (const item of (edition.items || [])) {
+                if (item.title.toLowerCase().includes(query) || edition.date_display.toLowerCase().includes(query)) {
+                    matches.push({
+                        title: item.title,
+                        type: item.type,
+                        link: item.link,
+                        date: edition.date_display
+                    });
+                }
+            }
+        }
+
+        if (matches.length === 0) {
+            container.innerHTML = '<div style="padding: 10px; font-size: 13px; color: var(--ink-muted);">No archived stories found matching "' + query + '".</div>';
+        } else {
+            container.innerHTML = matches.slice(0, 15).map(m => `
+                <div class="search-result-item">
+                    <a href="${m.link}" target="_blank" rel="noopener">${m.title}</a>
+                    <div class="search-meta"><b>${m.type}</b> · ${m.date}</div>
+                </div>
+            `).join('');
+        }
+        container.style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
