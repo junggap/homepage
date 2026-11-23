@@ -2,42 +2,17 @@
   {
     "date_key": "2026-11-23",
     "date_display": "Mon, Nov 23, 2026",
-    "items_count": 7,
+    "items_count": 2,
     "items": [
       {
-        "title": "ABS-CBN News. . ROBOT GYM? A new gym in Munich is teaching humanoid robots to handle everyday tasks, use tools, and work more safely alongside humans. #DWDigital",
+        "title": "End-to-End Visuomotor Policies Enter Automotive Assembly Plants",
         "type": "Lead",
-        "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNZW9KRDQ3ZGpMSkFubHhkUDVzaGVoT1RYQ1pnWUNaUkx6bGNZYXZnbjdwM211Rld4SlVtNm9pYVdrZ3FkNDRvbjkyd3JNRXFOUVc3dXN3c2sya0poZ0kxSFpsUWZQMVA4YjlZb2tnY1FFVXVxclloaEVBb0lmaUh6WDc3VGY1UGRpOHg4bWVHVERjWWdCbzVpS05zN1BveGh6Z0dYVHN0QTNNMEZqc3NOZENUajZKc1NjREJJOHJEMzlfeDBXSnpGZTVTa2xIV1BaWjQ5VmphVWY?oc=5"
+        "link": "#"
       },
       {
-        "title": "Nvidia expands Isaac robotics platform with new humanoid and AI development tools",
+        "title": "Quasi-Direct Drive vs. Cycloidal Actuators: Thermal Benchmarks in Biped Walking",
         "type": "Industry",
-        "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQQ3dVOHhUYzFCTXh2OFkyUWhSRnNuV0NyVHFyTENBYVlNZ21sU1FyR1JNQTR5UEVTS0VObEg1RVNEa2YxejdTZFBMZGk5UWFPeVhmRjdtS1ExSnJTMXlObHpfS240TFVwV29tZHdIdW9sQW44NE9vNF82UVZlaXR4QmdtRVVETjVPZkJLa29iTk12b1lrVnoyV2pXUkNpVlh0cDVjUTRxRzJ2UFJPTWNqbV9vMVpTVU1saWxrWTNHVjFRbVBxa2FoYWpyeU9tSFBxdjU5WA?oc=5"
-      },
-      {
-        "title": "AI agents vs physical AI: How software automation differs from embodied robotics",
-        "type": "Industry",
-        "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNYnVLUWl2Q2VORFhtS29pOU5IM3lnTW1jV1RfTGJvQmFrbkNLRDMtajgwVnNkQ0VJUk9CVkNNQjJaZGxrQWR1cjBCSy05TnJ1amlqVkY2VEFjc1ZscUZDVTAwS2t4LVhXZE8tczBXWm9FYy05Ui1wQXJTWHJkSW9HYlRpZ19TTHVnVUxRNUlsT2tPeGxzcVdqbHdrVGtOMEJ0emhORV9vZmZaMkk?oc=5"
-      },
-      {
-        "title": "China’s hidden robotics engine: How towel racks, vacuum motors, and car sensors became backbone of embodied AI",
-        "type": "Industry",
-        "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBBekJVSTd0eVhVSHVWTnc2RUxJUDdFZkMySzZUdDh4bUU0WHNURGo5RlNLdlcwSEljay10S0Q3Y3JVWUQ1MVZ6d0ZRNnpMYUpCYjJEaklrTzdBRGhtdDlJcXNB?oc=5"
-      },
-      {
-        "title": "Tesla: Musk Says Optimus Will Do the Dishes “Within 12-18 Months.” Here’s Where Tesla’s Robot Stands",
-        "type": "Company",
-        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQVEJrRmF3ZldaYW56X2pLbTc2UlhrNXFJSnVCTEVvTGdFamFpZnpNSkIyN3RoYnRnYkdqaEIxaHg4WXlrRWtQNFhwT3V4Yy01eWVEWFZubWNSWHhiZTBsdDJ3UG5mTFh3ek9qTUpmSXVGRnp5V2tWWkE3ZDcxM2szS2l1TEFBZkc5eWRQWGhTczNGUDJIWFV0X2cwSQ?oc=5"
-      },
-      {
-        "title": "Boston Dynamics: Boston Dynamics gives Atlas wheels to test new reinforcement learning capabilities",
-        "type": "Company",
-        "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQWlpiR1Ztekwya21XcGw0cGNJaFRNSFFDeFFCRWJaTUVfYTVxVTJhbFFTVmo4dnV3a2FZajRTVVJ3d0NtQ3YxSmZYd1JnMkF6UXNBVWFRMm1LdDE2b2dpMV9CODVIbDhJSFpySTBSMUZvd3NHajlWTWFpTFYwQ3lrdl9KZWM0MGNZZnVkeUdURUFmUTFMd2FIdnd5Vm9TZUdmUElQT3RKcGVZNUlTSTRJQ0Q3U2NOSlRBeEd6SWlwOEFJSVhFN0F2eDR5V0dpbzVVMkdiR3ZB?oc=5"
-      },
-      {
-        "title": "The Humanoid Co. (EU): Nvidia expands Isaac robotics platform with new humanoid and AI development tools",
-        "type": "Company",
-        "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQQ3dVOHhUYzFCTXh2OFkyUWhSRnNuV0NyVHFyTENBYVlNZ21sU1FyR1JNQTR5UEVTS0VObEg1RVNEa2YxejdTZFBMZGk5UWFPeVhmRjdtS1ExSnJTMXlObHpfS240TFVwV29tZHdIdW9sQW44NE9vNF82UVZlaXR4QmdtRVVETjVPZkJLa29iTk12b1lrVnoyV2pXUkNpVlh0cDVjUTRxRzJ2UFJPTWNqbV9vMVpTVU1saWxrWTNHVjFRbVBxa2FoYWpyeU9tSFBxdjU5WA?oc=5"
+        "link": "#"
       }
     ]
   },
