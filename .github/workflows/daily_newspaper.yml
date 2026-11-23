@@ -2,16 +2,26 @@ name: Daily Physical AI Newspaper Publisher
 
 on:
   schedule:
-    # Runs at 22:00 UTC every day (07:00 AM KST Seoul Time)
+    # 07:00 Korea Standard Time (UTC+9)
     - cron: '0 22 * * *'
-  workflow_dispatch: # Allows manual trigger from the GitHub web UI
+  workflow_dispatch:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "daily-newspaper-pages"
+  cancel-in-progress: false
+
+environment:
+  name: github-pages
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -21,18 +31,33 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Run Physical AI crawler & generate newspaper
-        run: |
-          python3 news/crawler.py
+      - name: Generate Physical AI newspaper
+        run: python3 news/crawler.py
 
-      - name: Commit and push updates
+      - name: Commit and push generated news
+        id: commit
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add news/
+
           if git diff --staged --quiet; then
-            echo "No changes to commit."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No generated news changes to commit."
           else
-            git commit -m "Publish daily Physical AI Chronicle: $(date +'%Y-%m-%d')"
-            git push
+            git commit -m "Publish daily Physical AI Chronicle: $(TZ=Asia/Seoul date +'%Y-%m-%d')"
+            git push origin HEAD:main
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
