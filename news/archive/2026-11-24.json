@@ -4,23 +4,27 @@
   "lead_story": {
     "title": "X Square Robot and Pos Malaysia Sign MoC to Explore Embodied AI in Logistics Automation",
     "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPVmk1X3JTdWF0SjdDc1c4M3VtSUVRWHhVWFVOczRkckZ6VG9SSk13VFVfbmdJT3Y0d1hoOFAwOXppRDVfRnUzQ2MxdV9DWHBMbUJfZXRsc0JBMEVPQmdUbnpsclJWeWU0dzlJYjFqRldXMU1ya3A4dUVoQ3l5MHJNeDhJeVBoQnJubmhpVlotY0JrV0ZFZ1E?oc=5",
-    "source": "Yahoo Finance"
+    "source": "Yahoo Finance",
+    "date": "Today"
   },
   "secondary_stories": [
     {
       "title": "South Korea Plans Next-X Humanoid Challenge to Select National Robot Platform",
       "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdXdZYTBNTVJNRTJBbHhva2Fta2E0dksxTEtZVnNCalF1OXpkSXc1MmtlcEItRWJodlc3LTRWWGhQM0VKNFJuMzhlRVk3eTU1RFlPSUhLSnlVckNtZEk3bVY3c0NfM25jU0hmMWF2YnpWbnRvWXZYSENrMkN1UnlzRE4tRFB2OEYxWVV3dzRRa2tZeWhmTU42VUV1VWhiaG95WVpVbjV6VlBsTGNqYVF1ZjdXZmk3QQ?oc=5",
-      "source": "AI Insider"
+      "source": "AI Insider",
+      "date": "Today"
     },
     {
       "title": "Israel's AI Week showcases advances in robotics and cybersecurity",
       "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE94OGRMZ3MtSTcyQXNCalMwcTV1MXZPc2cwUFZ1aVFWT2Nqek9UbE16TWVub0JHdU5tMXNSM1dfSHpwZTV0Y2NzQks1MEs2U1FMa2VjOXZGV3VyT0RmOVU0RVpseUlXU25RXzZKZw?oc=5",
-      "source": "The Jerusalem Post"
+      "source": "The Jerusalem Post",
+      "date": "Today"
     },
     {
       "title": "XPeng to showcase humanoid robot and physical AI advances at AI Day 2026",
       "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNamFBR3F5clM4aHpFRnRQY0ZsUnJpcUNfaGJZN1ZyYjg3YlVXbGVwTFJINWRTUG5tNHBlSzNpWWFVb2VPWVlNcVhKSWE1QTEtMEp0dDVXeW13X3BjSWpmQU5fUzlib3NIX1BjdGk1cFRhR3dnaWh2cnMxT0E2bjk0ZDZyQk5SUDFwdnlxTUdaeGZFVUg2c05wSzFaM2hGSXpuckJ4bVNLMjA4aXdEZDJaOUNtck1fYmJNcGJvS3FvaEstVmtlM1FnMg?oc=5",
-      "source": "Robotics & Automation News"
+      "source": "Robotics & Automation News",
+      "date": "Today"
     }
   ],
   "papers": [
