@@ -1,5 +1,87 @@
 [
   {
+    "date_key": "2026-11-24",
+    "date_display": "Tue, Nov 24, 2026",
+    "items_count": 15,
+    "items": [
+      {
+        "title": "X Square Robot and Pos Malaysia Sign MoC to Explore Embodied AI in Logistics Automation",
+        "type": "Lead",
+        "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPVmk1X3JTdWF0SjdDc1c4M3VtSUVRWHhVWFVOczRkckZ6VG9SSk13VFVfbmdJT3Y0d1hoOFAwOXppRDVfRnUzQ2MxdV9DWHBMbUJfZXRsc0JBMEVPQmdUbnpsclJWeWU0dzlJYjFqRldXMU1ya3A4dUVoQ3l5MHJNeDhJeVBoQnJubmhpVlotY0JrV0ZFZ1E?oc=5"
+      },
+      {
+        "title": "South Korea Plans Next-X Humanoid Challenge to Select National Robot Platform",
+        "type": "Industry",
+        "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdXdZYTBNTVJNRTJBbHhva2Fta2E0dksxTEtZVnNCalF1OXpkSXc1MmtlcEItRWJodlc3LTRWWGhQM0VKNFJuMzhlRVk3eTU1RFlPSUhLSnlVckNtZEk3bVY3c0NfM25jU0hmMWF2YnpWbnRvWXZYSENrMkN1UnlzRE4tRFB2OEYxWVV3dzRRa2tZeWhmTU42VUV1VWhiaG95WVpVbjV6VlBsTGNqYVF1ZjdXZmk3QQ?oc=5"
+      },
+      {
+        "title": "Israel's AI Week showcases advances in robotics and cybersecurity",
+        "type": "Industry",
+        "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE94OGRMZ3MtSTcyQXNCalMwcTV1MXZPc2cwUFZ1aVFWT2Nqek9UbE16TWVub0JHdU5tMXNSM1dfSHpwZTV0Y2NzQks1MEs2U1FMa2VjOXZGV3VyT0RmOVU0RVpseUlXU25RXzZKZw?oc=5"
+      },
+      {
+        "title": "XPeng to showcase humanoid robot and physical AI advances at AI Day 2026",
+        "type": "Industry",
+        "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNamFBR3F5clM4aHpFRnRQY0ZsUnJpcUNfaGJZN1ZyYjg3YlVXbGVwTFJINWRTUG5tNHBlSzNpWWFVb2VPWVlNcVhKSWE1QTEtMEp0dDVXeW13X3BjSWpmQU5fUzlib3NIX1BjdGk1cFRhR3dnaWh2cnMxT0E2bjk0ZDZyQk5SUDFwdnlxTUdaeGZFVUg2c05wSzFaM2hGSXpuckJ4bVNLMjA4aXdEZDJaOUNtck1fYmJNcGJvS3FvaEstVmtlM1FnMg?oc=5"
+      },
+      {
+        "title": "5G NR Sensing of Robotic Arm Motion in Indoor Factory Environments",
+        "type": "Paper",
+        "link": "https://arxiv.org/abs/2611.28053"
+      },
+      {
+        "title": "FlowPAC: Flow-Guided Visual Pruning and Action Caching for Efficient VLA Inference",
+        "type": "Paper",
+        "link": "https://arxiv.org/abs/2611.28256"
+      },
+      {
+        "title": "Neural Fidelity Calibration: Turning Field Anomalies into Simulation Fine-Tuning",
+        "type": "Paper",
+        "link": "https://arxiv.org/abs/2611.28260"
+      },
+      {
+        "title": "Neural Fidelity Calibration for Informative Sim-to-Real Adaptation",
+        "type": "Paper",
+        "link": "https://arxiv.org/abs/2611.28274"
+      },
+      {
+        "title": "Figure AI: Figure AI patents wearable system for teaching humanoid robots through human movement",
+        "type": "Company",
+        "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxObzNaWjAtc25MTHotS2xSekVYSDVURlRjeDYxbURiR0J2alNIdldRNUR6TzNrNW1VZ1ltbnZGX3VHRzVfdEhZc2d1cGg4MllaMVJNVFRoTFJPUGltZ2dBLXY0UFpheVlSeTRtUHJIWWowbFNZd3JxdWxyTGxiUDVIdWZSWUx2R21HbWIxeVFpeVNWbzBLQnN5TVVnamlJTXhoQ0YtTzJjeXVHX0VKZjBaeGdXOS1GaUhmNDFJeFBoUWQ4S3NnSG45U3ZzMk4zN08zeFdRdF9NZHNlQQ?oc=5"
+      },
+      {
+        "title": "Tesla: Tesla Optimus Robot Launch Timeline Targets 2027 Scale",
+        "type": "Company",
+        "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQM2M1R0h0SlhXN0NyME96djdxUjVvbWdfUGpZNEZoWlVGeVpDTWZLcmpVN1JYQ2YyQ1dDVm1XWTFnQXNIVjJNY0NSZWlmOGdIRG1hZ1pZeFU2OFpJZER5VGYzQTlmZklQNDJLNU1XaGlCbi1lNWNhOC1xOG45ZTZTUkpMc0tVbXhR?oc=5"
+      },
+      {
+        "title": "Boston Dynamics: Boston Dynamics gives Atlas wheels to test new reinforcement learning capabilities",
+        "type": "Company",
+        "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQWlpiR1Ztekwya21XcGw0cGNJaFRNSFFDeFFCRWJaTUVfYTVxVTJhbFFTVmo4dnV3a2FZajRTVVJ3d0NtQ3YxSmZYd1JnMkF6UXNBVWFRMm1LdDE2b2dpMV9CODVIbDhJSFpySTBSMUZvd3NHajlWTWFpTFYwQ3lrdl9KZWM0MGNZZnVkeUdURUFmUTFMd2FIdnd5Vm9TZUdmUElQT3RKcGVZNUlTSTRJQ0Q3U2NOSlRBeEd6SWlwOEFJSVhFN0F2eDR5V0dpbzVVMkdiR3ZB?oc=5"
+      },
+      {
+        "title": "Agility Robotics: Agility Robotics Unveils Digit 5 Humanoid for Safer Industrial Work (Video)",
+        "type": "Company",
+        "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE45RHozcjhQUTYwaGk2NTN1TnBkZHY3LUlrT1A2VUEwUnZCWnVpYlZzempYcGxNUnNWenpURTNSZFJ0VlBfNXJROVpzNHNRSmFHaTloclpacDFDdmVxc0NyUU9xcXZSLUlNNThPbA?oc=5"
+      },
+      {
+        "title": "Apptronik: GXO Eyes 1,000 Apollo Humanoids: Trials Will Decide the Rollout",
+        "type": "Company",
+        "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNV2p1YTN4Yi1DbDhzWVo1MmplOER3U3oyU1B4ajVrSTR6RnlETXpYbVpIX1RkWExBV09lNFBmcUdWYlFvNTBUdk1hYUtzRE1va3FRRHdsbDJ0V01nU0pKb09VMjc2UEcwNGFRTGQ3eXR5NDh5NERYekwwRmU0SC1IMzdn?oc=5"
+      },
+      {
+        "title": "Unitree Robotics: Unitree Robotics shares surge 20% as humanoid robot companies rally on policy support, investor optimism",
+        "type": "Company",
+        "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5TUF9GRFY1aXF4NThEc3NhX0o0UGJVNkVyd29Wblh6Sk1taHRqM1daQTZwUkI0YUdPM0hJRUNhT0xIcTAxb2dXYkJaTF9BN0NuQzBjM2lVeVhaTS1yZWMwM2V3?oc=5"
+      },
+      {
+        "title": "Robotis: China's export curbs disrupt permanent magnet supplies for Korean robot makers",
+        "type": "Company",
+        "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOOVdXc0RUdkhQcG9tbFh5djR0UVRtb3ctdEVzQXZhRS1yQlZwMHpDc1NSRXJQSElocjdGWDIyMU1kQWlENm9UWUM0dzY0eHc0YnZGVDN2WGZJMWhBZ2xPdkNlc0dBeWppQ1FOQ01CM2JzZlFjYVN2TFNGem83UnRSdmh30gGWAUFVX3lxTE0zclhRTm40SmE0c0h2UE1OMVVxYzdlWGtVWW00ZEtRX0t1aVI1QTYxZFRnRGwxcHFLcDlwZW0zS09CSG5iMGlaLUdmeHpqQlBaWF90cGhybFhTbUpWNkJLajlidl85TlRvYkFNWWFIdXpmbm41Qm03aFJoWXhKSDVlQWV0S25BdGFCbHpmSmw5ZkJSaEdidw?oc=5"
+      }
+    ]
+  },
+  {
     "date_key": "2026-11-23",
     "date_display": "Mon, Nov 23, 2026",
     "items_count": 2,
