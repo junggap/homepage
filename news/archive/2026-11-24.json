@@ -13,14 +13,14 @@
       "source": "AI Insider"
     },
     {
-      "title": "Israel's AI Week showcases advances in robotics and cybersecurity",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE94OGRMZ3MtSTcyQXNCalMwcTV1MXZPc2cwUFZ1aVFWT2Nqek9UbE16TWVub0JHdU5tMXNSM1dfSHpwZTV0Y2NzQks1MEs2U1FMa2VjOXZGV3VyT0RmOVU0RVpseUlXU25RXzZKZw?oc=5",
-      "source": "The Jerusalem Post"
-    },
-    {
       "title": "XPeng to showcase humanoid robot and physical AI advances at AI Day 2026",
       "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNamFBR3F5clM4aHpFRnRQY0ZsUnJpcUNfaGJZN1ZyYjg3YlVXbGVwTFJINWRTUG5tNHBlSzNpWWFVb2VPWVlNcVhKSWE1QTEtMEp0dDVXeW13X3BjSWpmQU5fUzlib3NIX1BjdGk1cFRhR3dnaWh2cnMxT0E2bjk0ZDZyQk5SUDFwdnlxTUdaeGZFVUg2c05wSzFaM2hGSXpuckJ4bVNLMjA4aXdEZDJaOUNtck1fYmJNcGJvS3FvaEstVmtlM1FnMg?oc=5",
       "source": "Robotics & Automation News"
+    },
+    {
+      "title": "Israel's AI Week showcases advances in robotics and cybersecurity",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE94OGRMZ3MtSTcyQXNCalMwcTV1MXZPc2cwUFZ1aVFWT2Nqek9UbE16TWVub0JHdU5tMXNSM1dfSHpwZTV0Y2NzQks1MEs2U1FMa2VjOXZGV3VyT0RmOVU0RVpseUlXU25RXzZKZw?oc=5",
+      "source": "The Jerusalem Post"
     }
   ],
   "papers": [
@@ -73,6 +73,13 @@
         "meta": "Robotics & Automation News · 2d ago (Nov 22)"
       },
       {
+        "name": "1X Technologies",
+        "robot": "NEO / EVE",
+        "update": "1X NEO Home Robot: What $20,000 Buys Before Deliveries",
+        "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQX1Y3YXA4SHRHemlNaGs2dXFOQlI5M1g1Y3RhSXJLdzFqM09ZQ2RUekxCMUc1UHBwMURzMmlYVkRxc1BjV0RkM25QbGxXNTlOczg0azh0RlY0SXVsNVhqSk9OVkhjdW9OSnNuWks2S2gweUsyNjlWblpoaDdDMC1XSDVn?oc=5",
+        "meta": "Technology Org · 3d ago (Nov 21)"
+      },
+      {
         "name": "Agility Robotics",
         "robot": "Digit",
         "update": "Agility Robotics Unveils Digit 5 Humanoid for Safer Industrial Work (Video)",
@@ -97,14 +104,6 @@
       }
     ],
     "europe": [],
-    "korea": [
-      {
-        "name": "Robotis",
-        "robot": "DYNAMIXEL-Y Drive",
-        "update": "China's export curbs disrupt permanent magnet supplies for Korean robot makers",
-        "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOOVdXc0RUdkhQcG9tbFh5djR0UVRtb3ctdEVzQXZhRS1yQlZwMHpDc1NSRXJQSElocjdGWDIyMU1kQWlENm9UWUM0dzY0eHc0YnZGVDN2WGZJMWhBZ2xPdkNlc0dBeWppQ1FOQ01CM2JzZlFjYVN2TFNGem83UnRSdmh30gGWAUFVX3lxTE0zclhRTm40SmE0c0h2UE1OMVVxYzdlWGtVWW00ZEtRX0t1aVI1QTYxZFRnRGwxcHFLcDlwZW0zS09CSG5iMGlaLUdmeHpqQlBaWF90cGhybFhTbUpWNkJLajlidl85TlRvYkFNWWFIdXpmbm41Qm03aFJoWXhKSDVlQWV0S25BdGFCbHpmSmw5ZkJSaEdidw?oc=5",
-        "meta": "Chosunbiz · 3d ago (Nov 21)"
-      }
-    ]
+    "korea": []
   }
 }
