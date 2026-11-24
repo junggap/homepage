@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: daily-newspaper-pages
+  group: "pages"
   cancel-in-progress: false
 
 jobs:
@@ -20,6 +20,8 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      TZ: "Asia/Seoul"
 
     steps:
       - name: Checkout repository
@@ -38,8 +40,6 @@ jobs:
 
       - name: Commit and push generated news
         id: commit
-        env:
-          TZ: Asia/Seoul
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
