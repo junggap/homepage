@@ -195,14 +195,35 @@ def fetch_industry_stories(working_days: int = 3):
 
             for item in root.findall('./channel/item'):
                 pubDate = item.find('pubDate').text if item.find('pubDate') is not None else ""
+                date_str = ""
                 if pubDate:
                     try:
                         dt = email.utils.parsedate_to_datetime(pubDate)
                         item_date = dt.date()
                         if item_date < cutoff:
                             continue
+                        delta_days = (today - item_date).days
+                        if delta_days == 0:
+                            date_str = "Today"
+                        elif delta_days == 1:
+                            date_str = "Yesterday"
+                        else:
+                            date_str = f"{delta_days}d ago ({item_date.strftime('%b %d')})"
                     except Exception:
-                        pass
+                        try:
+                            dt = datetime.datetime.strptime(pubDate[:16], "%a, %d %b %Y")
+                            item_date = dt.date()
+                            if item_date < cutoff:
+                                continue
+                            delta_days = (today - item_date).days
+                            if delta_days == 0:
+                                date_str = "Today"
+                            elif delta_days == 1:
+                                date_str = "Yesterday"
+                            else:
+                                date_str = f"{delta_days}d ago ({item_date.strftime('%b %d')})"
+                        except Exception:
+                            pass
 
                 title = clean_text(item.find('title').text)
                 link = item.find('link').text
@@ -211,7 +232,7 @@ def fetch_industry_stories(working_days: int = 3):
                     parts = title.rsplit(" - ", 1)
                     title = parts[0]
                     source = parts[1]
-                stories.append({"title": title, "link": link, "source": source})
+                stories.append({"title": title, "link": link, "source": source, "date": date_str})
                 if len(stories) >= 4:
                     break
     except Exception as e:
@@ -219,8 +240,8 @@ def fetch_industry_stories(working_days: int = 3):
         
     if not stories:
         stories = [
-            {"title": "End-to-End Visuomotor Policies Enter Automotive Assembly Plants", "source": "Industrial Robotics Report", "link": "#"},
-            {"title": "Quasi-Direct Drive vs. Cycloidal Actuators: Thermal Benchmarks in Biped Walking", "source": "Hardware Dispatches", "link": "#"}
+            {"title": "End-to-End Visuomotor Policies Enter Automotive Assembly Plants", "source": "Industrial Robotics Report", "link": "#", "date": "Today"},
+            {"title": "Quasi-Direct Drive vs. Cycloidal Actuators: Thermal Benchmarks in Biped Walking", "source": "Hardware Dispatches", "link": "#", "date": "Today"}
         ]
     return stories
 
@@ -307,12 +328,23 @@ def save_daily_archive(today_key: str, today_str: str, papers, stories, company_
 def render_html(today_str, papers, stories, company_updates):
     lead = stories[0]
     secondary_stories = stories[1:]
+
+    lead_meta_parts = [f"Source: {lead['source']}"]
+    if lead.get('date'):
+        lead_meta_parts.append(lead['date'])
+    else:
+        lead_meta_parts.append("Real-time Feed")
+    lead_byline = " · ".join(lead_meta_parts)
     
     secondary_html = ""
     for s in secondary_stories:
+        meta_parts = [s['source']]
+        if s.get('date'):
+            meta_parts.append(s['date'])
+        meta_str = " · ".join(meta_parts)
         secondary_html += f"""
         <div class="story-card">
-            <div class="story-meta">{s['source']}</div>
+            <div class="story-meta">{meta_str}</div>
             <h3><a href="{s['link']}" target="_blank" rel="noopener">{s['title']}</a></h3>
         </div>
         """
@@ -801,7 +833,7 @@ def render_html(today_str, papers, stories, company_updates):
                 <a href="{lead['link']}" target="_blank" rel="noopener">{lead['title']}</a>
             </h2>
             <div class="lead-byline">
-                <span>Source: {lead['source']} · Real-time Feed</span>
+                <span>{lead_byline}</span>
             </div>
         </article>
 
