@@ -13,14 +13,14 @@
       "source": "AI Insider"
     },
     {
-      "title": "XPeng to showcase humanoid robot and physical AI advances at AI Day 2026",
-      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNamFBR3F5clM4aHpFRnRQY0ZsUnJpcUNfaGJZN1ZyYjg3YlVXbGVwTFJINWRTUG5tNHBlSzNpWWFVb2VPWVlNcVhKSWE1QTEtMEp0dDVXeW13X3BjSWpmQU5fUzlib3NIX1BjdGk1cFRhR3dnaWh2cnMxT0E2bjk0ZDZyQk5SUDFwdnlxTUdaeGZFVUg2c05wSzFaM2hGSXpuckJ4bVNLMjA4aXdEZDJaOUNtck1fYmJNcGJvS3FvaEstVmtlM1FnMg?oc=5",
-      "source": "Robotics & Automation News"
-    },
-    {
       "title": "Israel's AI Week showcases advances in robotics and cybersecurity",
       "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE94OGRMZ3MtSTcyQXNCalMwcTV1MXZPc2cwUFZ1aVFWT2Nqek9UbE16TWVub0JHdU5tMXNSM1dfSHpwZTV0Y2NzQks1MEs2U1FMa2VjOXZGV3VyT0RmOVU0RVpseUlXU25RXzZKZw?oc=5",
       "source": "The Jerusalem Post"
+    },
+    {
+      "title": "XPeng to showcase humanoid robot and physical AI advances at AI Day 2026",
+      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNamFBR3F5clM4aHpFRnRQY0ZsUnJpcUNfaGJZN1ZyYjg3YlVXbGVwTFJINWRTUG5tNHBlSzNpWWFVb2VPWVlNcVhKSWE1QTEtMEp0dDVXeW13X3BjSWpmQU5fUzlib3NIX1BjdGk1cFRhR3dnaWh2cnMxT0E2bjk0ZDZyQk5SUDFwdnlxTUdaeGZFVUg2c05wSzFaM2hGSXpuckJ4bVNLMjA4aXdEZDJaOUNtck1fYmJNcGJvS3FvaEstVmtlM1FnMg?oc=5",
+      "source": "Robotics & Automation News"
     }
   ],
   "papers": [
@@ -101,9 +101,24 @@
         "update": "Unitree Robotics shares surge 20% as humanoid robot companies rally on policy support, investor optimism",
         "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5TUF9GRFY1aXF4NThEc3NhX0o0UGJVNkVyd29Wblh6Sk1taHRqM1daQTZwUkI0YUdPM0hJRUNhT0xIcTAxb2dXYkJaTF9BN0NuQzBjM2lVeVhaTS1yZWMwM2V3?oc=5",
         "meta": "Global Times · Yesterday"
+      },
+      {
+        "name": "UBTECH",
+        "robot": "Walker S1",
+        "update": "UBTECH Team, Please Extend Your Brief Wait Before Entering Your Residences",
+        "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1YXzUtbkxUNXY4bDNuVGZObG1mZnpNbUdDbzZoWFA3TGlrVy03MUlJRnEzaTlhTExSOFJydF9Zb1N6MGlIM3M2Xy1fWTg2TnAxQ0E4?oc=5",
+        "meta": "36Kr · 4d ago (Nov 20)"
       }
     ],
-    "europe": [],
+    "europe": [
+      {
+        "name": "The Humanoid Co. (EU)",
+        "robot": "HMND 01 Alpha",
+        "update": "Nvidia expands Isaac robotics platform with new humanoid and AI development tools",
+        "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQQ3dVOHhUYzFCTXh2OFkyUWhSRnNuV0NyVHFyTENBYVlNZ21sU1FyR1JNQTR5UEVTS0VObEg1RVNEa2YxejdTZFBMZGk5UWFPeVhmRjdtS1ExSnJTMXlObHpfS240TFVwV29tZHdIdW9sQW44NE9vNF82UVZlaXR4QmdtRVVETjVPZkJLa29iTk12b1lrVnoyV2pXUkNpVlh0cDVjUTRxRzJ2UFJPTWNqbV9vMVpTVU1saWxrWTNHVjFRbVBxa2FoYWpyeU9tSFBxdjU5WA?oc=5",
+        "meta": "Robotics & Automation News · 2d ago (Nov 22)"
+      }
+    ],
     "korea": []
   }
 }
