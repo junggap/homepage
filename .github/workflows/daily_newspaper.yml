@@ -2,8 +2,7 @@ name: Daily Physical AI Newspaper Publisher
 
 on:
   schedule:
-    # 07:00 Korea Standard Time (UTC+9)
-    - cron: '0 22 * * *'
+    - cron: "0 22 * * *"
   workflow_dispatch:
 
 permissions:
@@ -12,40 +11,45 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "daily-newspaper-pages"
+  group: daily-newspaper-pages
   cancel-in-progress: false
-
-environment:
-  name: github-pages
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: "3.10"
 
       - name: Generate Physical AI newspaper
         run: python3 news/crawler.py
 
       - name: Commit and push generated news
         id: commit
+        env:
+          TZ: Asia/Seoul
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add news/
 
           if git diff --staged --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No generated news changes to commit."
           else
-            git commit -m "Publish daily Physical AI Chronicle: $(TZ=Asia/Seoul date +'%Y-%m-%d')"
+            git commit -m "Publish daily Physical AI Chronicle: $(date +'%Y-%m-%d')"
             git push origin HEAD:main
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
@@ -56,7 +60,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: "."
 
       - name: Deploy to GitHub Pages
         id: deployment
