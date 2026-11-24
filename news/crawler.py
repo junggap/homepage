@@ -178,8 +178,8 @@ def fetch_arxiv_papers(max_results: int = 5):
         
     return papers
 
-def fetch_industry_stories(working_days: int = 3):
-    print(f"[2/3] Fetching latest Physical AI industry wire (last {working_days} working days)...")
+def fetch_industry_stories(working_days: int = 3, target_total: int = 8):
+    print(f"[2/3] Fetching latest Physical AI industry wire (across last {working_days} working days)...")
     query = "humanoid robot OR embodied AI OR physical AI"
     encoded_query = urllib.parse.quote(query)
     url = f"https://news.google.com/rss/search?q={encoded_query}&hl=en-US&gl=US&ceid=US:en"
@@ -193,37 +193,38 @@ def fetch_industry_stories(working_days: int = 3):
             today = datetime.date.today()
             cutoff = get_working_days_cutoff(today, num_working_days=working_days)
 
+            # Separate into buckets: today, yesterday, and older working days
+            buckets = {"today": [], "yesterday": [], "older": []}
+            all_valid = []
+
             for item in root.findall('./channel/item'):
                 pubDate = item.find('pubDate').text if item.find('pubDate') is not None else ""
                 date_str = ""
+                item_date = None
                 if pubDate:
                     try:
                         dt = email.utils.parsedate_to_datetime(pubDate)
                         item_date = dt.date()
-                        if item_date < cutoff:
-                            continue
-                        delta_days = (today - item_date).days
-                        if delta_days == 0:
-                            date_str = "Today"
-                        elif delta_days == 1:
-                            date_str = "Yesterday"
-                        else:
-                            date_str = f"{delta_days}d ago ({item_date.strftime('%b %d')})"
                     except Exception:
                         try:
                             dt = datetime.datetime.strptime(pubDate[:16], "%a, %d %b %Y")
                             item_date = dt.date()
-                            if item_date < cutoff:
-                                continue
-                            delta_days = (today - item_date).days
-                            if delta_days == 0:
-                                date_str = "Today"
-                            elif delta_days == 1:
-                                date_str = "Yesterday"
-                            else:
-                                date_str = f"{delta_days}d ago ({item_date.strftime('%b %d')})"
                         except Exception:
                             pass
+
+                if not item_date or item_date < cutoff:
+                    continue
+
+                delta_days = (today - item_date).days
+                if delta_days == 0:
+                    b_name = "today"
+                    date_str = "Today"
+                elif delta_days == 1:
+                    b_name = "yesterday"
+                    date_str = "Yesterday"
+                else:
+                    b_name = "older"
+                    date_str = f"{delta_days}d ago ({item_date.strftime('%b %d')})"
 
                 title = clean_text(item.find('title').text)
                 link = item.find('link').text
@@ -232,16 +233,44 @@ def fetch_industry_stories(working_days: int = 3):
                     parts = title.rsplit(" - ", 1)
                     title = parts[0]
                     source = parts[1]
-                stories.append({"title": title, "link": link, "source": source, "date": date_str})
-                if len(stories) >= 4:
-                    break
+
+                story = {"title": title, "link": link, "source": source, "date": date_str}
+                all_valid.append(story)
+                if len(buckets[b_name]) < 3:
+                    buckets[b_name].append(story)
+
+            # Pick lead story (from today if available, else first valid)
+            lead = None
+            if buckets["today"]:
+                lead = buckets["today"].pop(0)
+            elif all_valid:
+                lead = all_valid.pop(0)
+
+            # Collect secondary stories ensuring representation from each day bucket
+            secondary = []
+            for b in ["today", "yesterday", "older"]:
+                for s in buckets[b]:
+                    if s != lead and s not in secondary:
+                        secondary.append(s)
+
+            # If still fewer than target, backfill from remaining valid stories
+            if len(secondary) < (target_total - 1):
+                for s in all_valid:
+                    if s != lead and s not in secondary:
+                        secondary.append(s)
+                    if len(secondary) >= (target_total - 1):
+                        break
+
+            if lead:
+                stories = [lead] + secondary
     except Exception as e:
         print(f"Warning: Failed to fetch industry wire: {e}", file=sys.stderr)
         
     if not stories:
         stories = [
             {"title": "End-to-End Visuomotor Policies Enter Automotive Assembly Plants", "source": "Industrial Robotics Report", "link": "#", "date": "Today"},
-            {"title": "Quasi-Direct Drive vs. Cycloidal Actuators: Thermal Benchmarks in Biped Walking", "source": "Hardware Dispatches", "link": "#", "date": "Today"}
+            {"title": "Quasi-Direct Drive vs. Cycloidal Actuators: Thermal Benchmarks in Biped Walking", "source": "Hardware Dispatches", "link": "#", "date": "Yesterday"},
+            {"title": "Physical AI Foundations: Unified World Models for Bipedal Locomotion", "source": "Embodied AI Wire", "link": "#", "date": "2d ago (Nov 22)"}
         ]
     return stories
 
