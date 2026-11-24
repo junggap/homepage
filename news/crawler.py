@@ -16,6 +16,7 @@ import re
 import sys
 import json
 import datetime
+import email.utils
 import urllib.request
 import urllib.parse
 import xml.etree.ElementTree as ET
@@ -74,10 +75,25 @@ def clean_text(text: str) -> str:
     text = re.sub(r'\s+', ' ', text)
     return text.strip()
 
-def fetch_rss_query(query: str, max_days: int = 7):
+def get_working_days_cutoff(ref_date: datetime.date = None, num_working_days: int = 3) -> datetime.date:
+    """
+    Returns the date of the N-th working day prior to ref_date.
+    Working days are Monday (0) through Friday (4).
+    """
+    if ref_date is None:
+        ref_date = datetime.date.today()
+    cur = ref_date
+    working_days_counted = 0
+    while working_days_counted < num_working_days:
+        cur -= datetime.timedelta(days=1)
+        if cur.weekday() < 5:  # Monday to Friday
+            working_days_counted += 1
+    return cur
+
+def fetch_rss_query(query: str, working_days: int = 3):
     """
     Search Google News RSS for a specific query and return recent news item
-    ONLY if it was published within the past `max_days` days.
+    ONLY if it was published within the last `working_days` working days.
     """
     encoded_query = urllib.parse.quote(query)
     url = f"https://news.google.com/rss/search?q={encoded_query}&hl=en-US&gl=US&ceid=US:en"
@@ -88,49 +104,46 @@ def fetch_rss_query(query: str, max_days: int = 7):
             xml_data = response.read()
             root = ET.fromstring(xml_data)
             items = root.findall('./channel/item')
-            if items:
-                item = items[0]
-                title = clean_text(item.find('title').text)
-                link = item.find('link').text if item.find('link') is not None else "#"
+            today = datetime.date.today()
+            cutoff = get_working_days_cutoff(today, num_working_days=working_days)
+
+            for item in items[:5]:
                 pubDate = item.find('pubDate').text if item.find('pubDate') is not None else ""
-                
-                # Check date threshold (7 days)
-                is_recent = False
-                date_str = ""
-                if pubDate:
+                if not pubDate:
+                    continue
+                try:
+                    dt = email.utils.parsedate_to_datetime(pubDate)
+                    item_date = dt.date()
+                except Exception:
                     try:
-                        # e.g., 'Wed, 18 Nov 2026 14:00:00 GMT'
-                        # Standard RFC 822 format parsed by slicing or email.utils
-                        dt = datetime.datetime.strptime(pubDate[:16], "%a, %d %b %Y")
-                        now = datetime.datetime.now()
-                        delta = now - dt
-                        if delta.days <= max_days:
-                            is_recent = True
-                            if delta.days == 0:
-                                date_str = "Today"
-                            elif delta.days == 1:
-                                date_str = "Yesterday"
-                            else:
-                                date_str = f"{delta.days}d ago ({dt.strftime('%b %d')})"
+                        item_date = datetime.datetime.strptime(pubDate[:16], "%a, %d %b %Y").date()
                     except Exception:
-                        # If date parsing fails, fallback check
-                        pass
-                
-                if not is_recent:
-                    return None
-                
-                source = "News"
-                if " - " in title:
-                    parts = title.rsplit(" - ", 1)
-                    title = parts[0]
-                    source = parts[1]
-                    
-                return {
-                    "headline": title,
-                    "link": link,
-                    "source": source,
-                    "date": date_str
-                }
+                        continue
+
+                # Check if publication date falls within the last 3 working days (or newer)
+                if item_date >= cutoff:
+                    title = clean_text(item.find('title').text)
+                    link = item.find('link').text if item.find('link') is not None else "#"
+                    delta_days = (today - item_date).days
+                    if delta_days == 0:
+                        date_str = "Today"
+                    elif delta_days == 1:
+                        date_str = "Yesterday"
+                    else:
+                        date_str = f"{delta_days}d ago ({item_date.strftime('%b %d')})"
+
+                    source = "News"
+                    if " - " in title:
+                        parts = title.rsplit(" - ", 1)
+                        title = parts[0]
+                        source = parts[1]
+
+                    return {
+                        "headline": title,
+                        "link": link,
+                        "source": source,
+                        "date": date_str
+                    }
     except Exception:
         pass
     return None
@@ -165,8 +178,8 @@ def fetch_arxiv_papers(max_results: int = 5):
         
     return papers
 
-def fetch_industry_stories():
-    print("[2/3] Fetching latest Physical AI industry wire...")
+def fetch_industry_stories(working_days: int = 3):
+    print(f"[2/3] Fetching latest Physical AI industry wire (last {working_days} working days)...")
     query = "humanoid robot OR embodied AI OR physical AI"
     encoded_query = urllib.parse.quote(query)
     url = f"https://news.google.com/rss/search?q={encoded_query}&hl=en-US&gl=US&ceid=US:en"
@@ -177,8 +190,20 @@ def fetch_industry_stories():
         with urllib.request.urlopen(req, timeout=10) as response:
             xml_data = response.read()
             root = ET.fromstring(xml_data)
-            
-            for item in root.findall('./channel/item')[:4]:
+            today = datetime.date.today()
+            cutoff = get_working_days_cutoff(today, num_working_days=working_days)
+
+            for item in root.findall('./channel/item'):
+                pubDate = item.find('pubDate').text if item.find('pubDate') is not None else ""
+                if pubDate:
+                    try:
+                        dt = email.utils.parsedate_to_datetime(pubDate)
+                        item_date = dt.date()
+                        if item_date < cutoff:
+                            continue
+                    except Exception:
+                        pass
+
                 title = clean_text(item.find('title').text)
                 link = item.find('link').text
                 source = "Global Wire"
@@ -187,6 +212,8 @@ def fetch_industry_stories():
                     title = parts[0]
                     source = parts[1]
                 stories.append({"title": title, "link": link, "source": source})
+                if len(stories) >= 4:
+                    break
     except Exception as e:
         print(f"Warning: Failed to fetch industry wire: {e}", file=sys.stderr)
         
@@ -197,15 +224,15 @@ def fetch_industry_stories():
         ]
     return stories
 
-def fetch_company_updates():
-    print("[3/3] Checking recent company updates (strictly within past 7 days)...")
+def fetch_company_updates(working_days: int = 3):
+    print(f"[3/3] Checking recent company updates (strictly within last {working_days} working days)...")
     company_updates = {}
     
     for region, companies in TRACKED_COMPANIES.items():
         company_updates[region] = []
         for c in companies:
-            news = fetch_rss_query(c['query'], max_days=7)
-            # ONLY include the company if a verified update within the past 7 days was found
+            news = fetch_rss_query(c['query'], working_days=working_days)
+            # ONLY include the company if a verified update within the last 3 working days was found
             if news:
                 update_meta = f"{news['source']} · {news['date']}"
                 company_updates[region].append({
@@ -306,7 +333,7 @@ def render_html(today_str, papers, stories, company_updates):
         if not companies:
             return f"""
             <div style="padding: 10px 14px; font-size: 13.5px; color: var(--ink-muted); font-style: italic; background-color: var(--paper-card); border: 1px dashed var(--rule-light); border-radius: 6px;">
-                No major news or public updates detected from {region_name} companies within the past 7 days.
+                No major news or public updates detected from {region_name} companies within the last 3 working days.
             </div>
             """
         html = ""
